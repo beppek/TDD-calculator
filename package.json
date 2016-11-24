@@ -1,0 +1,33 @@
+{
+  "name": "tdd-calculator",
+  "version": "0.0.1",
+  "description": "A simple calculator to learn TDD",
+  "main": "./js/bundle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beppek/TDD-calculator.git"
+  },
+  "keywords": [
+    "calculator",
+    "javascript",
+    "node",
+    "TDD"
+  ],
+  "author": "beppek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beppek/TDD-calculator/issues"
+  },
+  "homepage": "https://github.com/beppek/TDD-calculator#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "webpack": "^1.13.3"
+  }
+}
