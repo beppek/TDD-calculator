@@ -23,7 +23,6 @@ describe('Calculator', function () {
             assert.throws(function() {sut.multiply(notNumbers)}, TypeError, "Input was not a number");
         });
 
-
         it('should multiply more than 2 numbers', function () {
             var numbers = [];
             var numbersLength = Math.floor((Math.random() * 10) + 3);
