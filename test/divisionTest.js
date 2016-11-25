@@ -18,6 +18,13 @@ describe('Calculator', function () {
             assert.equal(actual, expected);
         });
 
+
+        it('should throw TypeError if params are NaN', function () {
+            var notNumbers = ['a', 'b', 'c'];
+            assert.throws(function() {sut.divide(notNumbers)}, TypeError, "Input was not a number");
+        });
+
+
     });
 
 });
