@@ -33,8 +33,13 @@ Calculator.prototype.multiply = function(numbers) {
     return result;
 };
 
-Calculator.prototype.divide = function(a, b) {
-
+Calculator.prototype.divide = function(numbers) {
+    var result = numbers[0];
+    var i;
+    for (i = 1; i < numbers.length; i += 1) {
+        result /= numbers[i];
+    }
+    return result;
 };
 
 function checkInputAreNumbers(numbers) {
