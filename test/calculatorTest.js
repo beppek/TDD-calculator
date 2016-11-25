@@ -13,18 +13,16 @@ describe('Calculator', function () {
     describe('Addition', function () {
 
         it('should add 2 numbers', function () {
-            var a = 1;
-            var b = 2;
-            var expected = a + b;
-            var actual = sut.add(a, b);
+            var numbers = [1,2];
+            var expected = 3;
+            var actual = sut.add(numbers);
             assert.equal(expected, actual);
         });
 
 
         it('should throw TypeError if params are NaN', function () {
-            var a = 'a';
-            var b = 'b';
-            assert.throws(function() {sut.add(a,b)}, TypeError, "Input was not a number");
+            var notNumbers = ['a', 'b', 'c'];
+            assert.throws(function() {sut.add(notNumbers)}, TypeError, "Input was not a number");
         });
 
 
