@@ -4,11 +4,15 @@ function Calculator() {
 
 }
 
-Calculator.prototype.add = function(a, b) {
-    if (isNaN(a) || isNaN(b)) {
-        throw new TypeError("Input was not a number");
-    }
-    return a + b;
+Calculator.prototype.add = function(numbers) {
+    var result = 0;
+    numbers.forEach(function(num) {
+        if (isNaN(num)) {
+            throw new TypeError("Input was not a number");
+        }
+        result += num;
+    });
+    return result;
 };
 
 Calculator.prototype.subtract = function(a, b) {

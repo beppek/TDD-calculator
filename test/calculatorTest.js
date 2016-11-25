@@ -29,21 +29,21 @@ describe('Calculator', function () {
 
 
         it('should add more than 2 numbers', function () {
-            var numbersArray = [];
-            var numbersArrayLength = Math.floor((Math.random() * 10) + 3);
+            var numbers = [];
+            var numbersLength = Math.floor((Math.random() * 10) + 3);
 
             var i;
-            for (i = 0; i < numbersArrayLength; i += 1) {
+            for (i = 0; i < numbersLength; i += 1) {
                 var randomNumber = Math.floor((Math.random() * 100) + 1);
-                numbersArray.push(randomNumber);
+                numbers.push(randomNumber);
             }
 
             var expected = 0;
-            numbersArray.forEach(function(num) {
+            numbers.forEach(function(num) {
                 expected += num;
             });
 
-            var actual = sut.add(numbersArray);
+            var actual = sut.add(numbers);
 
             assert.equal(expected, actual);
         });
