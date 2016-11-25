@@ -16,6 +16,11 @@ Calculator.prototype.add = function(numbers) {
 };
 
 Calculator.prototype.subtract = function(numbers) {
+    numbers.forEach(function(num) {
+        if (isNaN(num)) {
+            throw new TypeError("Input was not a number");
+        }
+    });
     var result = numbers[0];
     var i;
     for (i = 1; i < numbers.length; i += 1) {
