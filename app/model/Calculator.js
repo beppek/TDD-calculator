@@ -5,8 +5,8 @@ function Calculator() {
 }
 
 Calculator.prototype.add = function(numbers) {
-    var result = 0;
     checkInputAreNumbers(numbers);
+    var result = 0;
     numbers.forEach(function(num) {
         result += num;
     });
