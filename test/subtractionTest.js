@@ -5,7 +5,6 @@ var Calculator = require('../app/model/Calculator');
 
 var assert = chai.assert;
 
-
 describe('Calculator', function () {
 
     var sut = new Calculator();
@@ -49,12 +48,10 @@ describe('Calculator', function () {
 
         it('should handle negative numbers', function () {
             var numbers = [-2, -3];
-            var expected = (-2) - (-3);
+            var expected = 1;
             var actual = sut.subtract(numbers);
             assert.equal(expected, actual);
         });
-
-
 
     });
 });
