@@ -20,5 +20,13 @@ describe('Calculator', function () {
             assert.equal(expected, actual);
         });
 
+
+        it('should throw TypeError if params are NaN', function () {
+            var a = 'a';
+            var b = 'b';
+            assert.throws(function() {sut.add(a,b)}, TypeError, "Input was not a number");
+        });
+
+
     });
 });
