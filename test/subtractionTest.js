@@ -2,6 +2,7 @@
 
 var chai = require('chai');
 var Calculator = require('../app/model/Calculator');
+var helper = require('./testHelpers/testHelper');
 
 var assert = chai.assert;
 
@@ -26,16 +27,11 @@ describe('Calculator', function () {
 
 
         it('should subtract more than 2 numbers', function () {
-            var numbers = [];
-            var numbersLength = Math.floor((Math.random() * 10) + 3);
-
-            var i;
-            for (i = 0; i < numbersLength; i += 1) {
-                var randomNumber = Math.floor((Math.random() * 100) + 1);
-                numbers.push(randomNumber);
-            }
+            var numbersLength = helper.getRandomArrayLength();
+            var numbers = helper.getRandomNumbers(numbersLength);
 
             var expected = numbers[0];
+            var i;
             for (i = 1; i < numbers.length; i += 1) {
                 expected -= numbers[i];
             }
