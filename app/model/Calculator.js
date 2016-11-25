@@ -5,6 +5,9 @@ function Calculator() {
 }
 
 Calculator.prototype.add = function(a, b) {
+    if (isNaN(a) || isNaN(b)) {
+        throw new TypeError("Input was not a number");
+    }
     return a + b;
 };
 
