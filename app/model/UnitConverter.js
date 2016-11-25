@@ -16,7 +16,10 @@ UnitConverter.prototype.kmToMiles = function(km) {
 };
 
 UnitConverter.prototype.milesToKm = function(miles) {
-
+    var ratio = 1.609344;
+    var numbers = [miles, ratio];
+    var km = c.multiply(numbers).toFixed(5);
+    return km;
 };
 
 module.exports = UnitConverter;
