@@ -15,8 +15,13 @@ Calculator.prototype.add = function(numbers) {
     return result;
 };
 
-Calculator.prototype.subtract = function(a, b) {
-
+Calculator.prototype.subtract = function(numbers) {
+    var result = numbers[0];
+    var i;
+    for (i = 1; i < numbers.length; i += 1) {
+        result -= numbers[i];
+    }
+    return result;
 };
 
 Calculator.prototype.multiply = function(a, b) {
