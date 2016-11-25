@@ -36,7 +36,6 @@ describe('Calculator', function () {
             }
 
             var expected = numbers[0];
-            var i;
             for (i = 1; i < numbers.length; i += 1) {
                 expected -= numbers[i];
             }

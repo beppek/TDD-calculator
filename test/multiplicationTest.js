@@ -23,6 +23,27 @@ describe('Calculator', function () {
             assert.throws(function() {sut.multiply(notNumbers)}, TypeError, "Input was not a number");
         });
 
+
+        it('should multiply more than 2 numbers', function () {
+            var numbers = [];
+            var numbersLength = Math.floor((Math.random() * 10) + 3);
+
+            var i;
+            for (i = 0; i < numbersLength; i += 1) {
+                var randomNumber = Math.floor((Math.random() * 100) + 1);
+                numbers.push(randomNumber);
+            }
+
+            var expected = numbers[0];
+            for (i = 1; i < numbers.length; i += 1) {
+                expected *= numbers[i];
+            }
+
+            var actual = sut.multiply(numbers);
+            assert.equal(expected, actual);
+        });
+
+
     });
 
 });
