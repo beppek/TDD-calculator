@@ -10,7 +10,7 @@ describe('Calculator', function () {
 
     var sut = new Calculator();
 
-    describe('Division', function () {
+    describe('Addition', function () {
 
         it('should add 2 numbers', function () {
             var a = 1;
