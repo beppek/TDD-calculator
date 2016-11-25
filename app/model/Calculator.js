@@ -34,6 +34,7 @@ Calculator.prototype.multiply = function(numbers) {
 };
 
 Calculator.prototype.divide = function(numbers) {
+    checkInputAreNumbers(numbers);
     var result = numbers[0];
     var i;
     for (i = 1; i < numbers.length; i += 1) {
