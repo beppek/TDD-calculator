@@ -18,6 +18,15 @@ describe('UnitConverter', function () {
             assert.equal(expected, actual);
         });
 
+
+        it('should convert miles to kilometers', function () {
+            var miles = 10;
+            var expected = 16.09344;
+            var actual = sut.milesToKm(miles);
+            assert.equal(expected, actual);
+        });
+
+
     });
 
 });
