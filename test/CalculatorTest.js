@@ -20,12 +20,10 @@ describe('Calculator', function () {
             assert.equal(expected, actual);
         });
 
-
         it('should throw TypeError if params are NaN', function () {
             var notNumbers = ['a', 'b', 'c'];
             assert.throws(function() {sut.add(notNumbers)}, TypeError, "Input was not a number");
         });
-
 
         it('should add more than 2 numbers', function () {
             var numbersLength = helper.getRandomArrayLength();
@@ -51,7 +49,6 @@ describe('Calculator', function () {
             var actual = sut.divide(numbers);
             assert.equal(actual, expected);
         });
-
 
         it('should throw TypeError if params are NaN', function () {
             var notNumbers = ['a', 'b', 'c'];
@@ -113,12 +110,10 @@ describe('Calculator', function () {
             assert.equal(expected, actual);
         });
 
-
         it('should throw TypeError if params are NaN', function () {
             var notNumbers = ['a', 'b', 'c'];
             assert.throws(function() {sut.subtract(notNumbers)}, TypeError, "Input was not a number");
         });
-
 
         it('should subtract more than 2 numbers', function () {
             var numbersLength = helper.getRandomArrayLength();
@@ -133,7 +128,6 @@ describe('Calculator', function () {
             var actual = sut.subtract(numbers);
             assert.equal(expected, actual);
         });
-
 
         it('should handle negative numbers', function () {
             var numbers = [-2, -3];

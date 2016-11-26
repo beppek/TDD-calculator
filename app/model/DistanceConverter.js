@@ -22,4 +22,12 @@ DistanceConverter.prototype.milesToKm = function(miles) {
     return km;
 };
 
+DistanceConverter.prototype.metersToYards = function(meters) {
+
+};
+
+DistanceConverter.prototype.yardsToMeters = function(yards) {
+
+};
+
 module.exports = DistanceConverter;
