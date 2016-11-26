@@ -23,7 +23,10 @@ DistanceConverter.prototype.milesToKm = function(miles) {
 };
 
 DistanceConverter.prototype.metersToYards = function(meters) {
-
+    var ratio = 0.9144;
+    var numbers = [meters, ratio];
+    var yards = c.divide(numbers).toFixed(5);
+    return yards;
 };
 
 DistanceConverter.prototype.yardsToMeters = function(yards) {
