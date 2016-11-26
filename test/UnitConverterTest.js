@@ -5,10 +5,10 @@ var UnitConverter = require('../app/model/UnitConverter.js');
 
 var assert = chai.assert;
 
-var kmTo = require('../app/controller/enums/km');
-var milesTo = require('../app/controller/enums/miles');
-var metersTo = require('../app/controller/enums/meters');
-var yardsTo = require('../app/controller/enums/yards');
+var kmTo = require('../app/model/units/km');
+var milesTo = require('../app/model/units/miles');
+var metersTo = require('../app/model/units/meters');
+var yardsTo = require('../app/model/units/yards');
 
 describe('UnitConverter', function () {
 
@@ -73,5 +73,17 @@ describe('UnitConverter', function () {
         });
 
     });
+
+    describe('TemperatureConverter', function () {
+
+        it('should convert celsius to fahrenheit', function () {
+            var celsius = 50;
+            var expected = 122;
+            var actual = sut.celsiusToFahrenheit(celsius);
+            assert.equal(actual, expected);
+        });
+
+    });
+
 
 });

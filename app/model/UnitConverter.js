@@ -12,4 +12,8 @@ UnitConverter.prototype.distance = function(distance, ratio) {
     return c.multiply([distance, ratio]).toFixed(5);
 };
 
+UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
+
+}
+
 module.exports = UnitConverter;
