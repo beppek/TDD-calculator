@@ -1,0 +1,77 @@
+'use strict';
+
+var chai = require('chai');
+var UnitConverter = require('../app/model/UnitConverter.js');
+
+var assert = chai.assert;
+
+var kmTo = require('../app/controller/enums/km');
+var milesTo = require('../app/controller/enums/miles');
+var metersTo = require('../app/controller/enums/meters');
+var yardsTo = require('../app/controller/enums/yards');
+
+describe('UnitConverter', function () {
+
+    var sut = new UnitConverter();
+
+    describe('DistanceConverter', function () {
+
+        describe('Kilometers', function () {
+
+            it('should convert kilometers to miles', function () {
+                var km = 10;
+                var expected = 6.2137;
+                var actual = sut.distance(km, kmTo.miles);
+                assert.equal(actual, expected);
+            });
+
+            it('should convert km to yards', function () {
+                var km = 1;
+                var expected = 1093.61330;
+                var actual = sut.distance(km, kmTo.yards);
+                assert.equal(actual, expected);
+            });
+
+            it('should convert km to meters', function () {
+                var km = 1;
+                var expected = 1000;
+                var actual = sut.distance(km, kmTo.meters);
+                assert.equal(actual, expected);
+            });
+
+        });
+
+        describe('Miles', function () {
+
+            it('should convert miles to kilometers', function () {
+                var miles = 10;
+                var expected = 16.09344;
+                var actual = sut.distance(miles, milesTo.km);
+                assert.equal(actual, expected);
+            });
+
+        });
+
+        describe('Meters', function () {
+
+            it('should convert meters to yards', function () {
+                var meters = 100;
+                var expected = 109.36133;
+                var actual = sut.distance(meters, metersTo.yards);
+                assert.equal(actual, expected);
+            });
+        });
+
+        describe('yards', function () {
+
+            it('should convert yards to meters', function () {
+                var yards = 100;
+                var expected = 91.44000;
+                var actual = sut.distance(yards, yardsTo.meters);
+                assert.equal(actual, expected);
+            });
+        });
+
+    });
+
+});
