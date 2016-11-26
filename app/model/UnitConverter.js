@@ -34,7 +34,7 @@ UnitConverter.prototype.distance = function(distance, ratio) {
  */
 UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
     return (c.multiply([celsius, 1.8]) + 32).toFixed(2);
-}
+};
 
 /**
  * Converts a given temperature from fahrenheit to celsius
@@ -42,6 +42,6 @@ UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
  */
 UnitConverter.prototype.fahrenheitToCelsius = function(fahrenheit) {
     return c.multiply([fahrenheit - 32, 0.5556]).toFixed(2);
-}
+};
 
 module.exports = UnitConverter;

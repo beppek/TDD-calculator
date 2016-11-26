@@ -16,6 +16,12 @@ describe('UnitConverter', function () {
 
     describe('DistanceConverter', function () {
 
+        it('should only accept positive number for distance', function () {
+            var negativeDistance = -12;
+            var ratio = 1;
+            assert.throws(function() {sut.distance(negativeDistance, ratio)}, TypeError, "Input can't be a negative number");
+        });
+
         describe('Kilometers', function () {
 
             it('should convert kilometers to miles', function () {
