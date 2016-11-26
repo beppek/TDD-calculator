@@ -13,9 +13,25 @@ describe('DistanceConverter', function () {
     it('should convert kilometers to miles', function () {
         var km = 10;
         var expected = 6.2137;
-        var actual = sut.kmToMiles(km);
+        var actual = sut.kmConversion(km, kmTo.miles);
         assert.equal(actual, expected);
     });
+
+    it('should convert km to yards', function () {
+        var km = 1;
+        var expected = 1093.61330;
+        var actual = sut.kmConversion(km, kmTo.yards);
+        assert.equal(actual, expected);
+    });
+
+
+    it('should convert km to meters', function () {
+        var km = 1;
+        var expected = 1000;
+        var actual = sut.kmConversion(km, kmTo.meters);
+        assert.equal(actual, expected);
+    });
+
 
     it('should convert miles to kilometers', function () {
         var miles = 10;
@@ -35,14 +51,6 @@ describe('DistanceConverter', function () {
         var yards = 100;
         var expected = 91.44000;
         var actual = sut.yardsToMeters(yards);
-        assert.equal(actual, expected);
-    });
-
-
-    it('should convert km to yards', function () {
-        var km = 1;
-        var expected = 1093.61330;
-        var actual = sut.kmConversion(km, kmTo.yards);
         assert.equal(actual, expected);
     });
 
