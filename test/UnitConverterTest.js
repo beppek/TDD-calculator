@@ -83,6 +83,14 @@ describe('UnitConverter', function () {
             assert.equal(actual, expected);
         });
 
+        it('should convert fahrenheit to celsius', function () {
+            var fahrenheit = 50;
+            var expected = 10;
+            var actual = sut.fahrenheitToCelsius(fahrenheit);
+            assert.equal(actual, expected);
+        });
+
+
     });
 
 

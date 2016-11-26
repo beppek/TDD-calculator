@@ -13,6 +13,10 @@ UnitConverter.prototype.distance = function(distance, ratio) {
 };
 
 UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
+    return c.multiply([celsius, 1.8]) + 32;
+}
+
+UnitConverter.prototype.fahrenheitToCelsius = function(fahrenheit) {
 
 }
 
