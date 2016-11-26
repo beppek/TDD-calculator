@@ -17,7 +17,7 @@ UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
 }
 
 UnitConverter.prototype.fahrenheitToCelsius = function(fahrenheit) {
-
+    return c.multiply([fahrenheit - 32, 0.5556]).toFixed(2);
 }
 
 module.exports = UnitConverter;
