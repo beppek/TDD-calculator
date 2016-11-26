@@ -2,6 +2,7 @@
 
 var chai = require('chai');
 var DistanceConverter = require('../app/model/DistanceConverter.js');
+var kmTo = require('../app/model/kmConversionEnum');
 
 var assert = chai.assert;
 
@@ -34,6 +35,14 @@ describe('DistanceConverter', function () {
         var yards = 100;
         var expected = 91.44000;
         var actual = sut.yardsToMeters(yards);
+        assert.equal(actual, expected);
+    });
+
+
+    it('should convert km to yards', function () {
+        var km = 1;
+        var expected = 1093.61330;
+        var actual = sut.kmConversion(km, kmTo.yards);
         assert.equal(actual, expected);
     });
 

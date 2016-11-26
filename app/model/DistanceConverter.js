@@ -8,6 +8,10 @@ function DistanceConverter() {
     c = new Calculator();
 }
 
+DistanceConverter.prototype.kmConversion = function(km, ratio) {
+
+};
+
 DistanceConverter.prototype.kmToMiles = function(km) {
     var ratio = 0.62137;
     var numbers = [km, ratio];
@@ -34,6 +38,10 @@ DistanceConverter.prototype.yardsToMeters = function(yards) {
     var numbers = [yards, ratio];
     var meters = c.multiply(numbers).toFixed(5);
     return meters;
+};
+
+DistanceConverter.prototype.milesToYards = function(miles) {
+
 };
 
 module.exports = DistanceConverter;
