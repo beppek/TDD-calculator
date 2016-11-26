@@ -25,6 +25,7 @@ function UnitConverter() {
  * @param ratio - the conversion ratio between the selected units. Use files in ./units/
  */
 UnitConverter.prototype.distance = function(distance, ratio) {
+    checkInputIsPositive([distance, ratio]);
     return c.multiply([distance, ratio]).toFixed(5);
 };
 
@@ -45,3 +46,11 @@ UnitConverter.prototype.fahrenheitToCelsius = function(fahrenheit) {
 };
 
 module.exports = UnitConverter;
+
+function checkInputIsPositive(numbers) {
+    numbers.forEach(function(number) {
+        if (number < 0) {
+            throw new TypeError("Input can't be a negative number");
+        }
+    });
+}
