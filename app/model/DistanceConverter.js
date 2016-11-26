@@ -30,7 +30,10 @@ DistanceConverter.prototype.metersToYards = function(meters) {
 };
 
 DistanceConverter.prototype.yardsToMeters = function(yards) {
-
+    var ratio = 0.9144;
+    var numbers = [yards, ratio];
+    var meters = c.multiply(numbers).toFixed(5);
+    return meters;
 };
 
 module.exports = DistanceConverter;
