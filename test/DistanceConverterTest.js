@@ -13,22 +13,28 @@ describe('DistanceConverter', function () {
         var km = 10;
         var expected = 6.2137;
         var actual = sut.kmToMiles(km);
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
     });
 
     it('should convert miles to kilometers', function () {
         var miles = 10;
         var expected = 16.09344;
         var actual = sut.milesToKm(miles);
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
     });
-
 
     it('should convert meters to yards', function () {
         var meters = 100;
         var expected = 109.36133;
         var actual = sut.metersToYards(meters);
-        assert.equal(expected, actual);
+        assert.equal(actual, expected);
+    });
+
+    it('should convert yards to meters', function () {
+        var yards = 100;
+        var expected = 91.44000;
+        var actual = sut.yardsToMeters(yards);
+        assert.equal(actual, expected);
     });
 
 

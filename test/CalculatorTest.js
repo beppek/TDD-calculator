@@ -17,7 +17,7 @@ describe('Calculator', function () {
             var numbers = [1,2];
             var expected = 3;
             var actual = sut.add(numbers);
-            assert.equal(expected, actual);
+            assert.equal(actual, expected);
         });
 
         it('should throw TypeError if params are NaN', function () {
@@ -36,7 +36,7 @@ describe('Calculator', function () {
 
             var actual = sut.add(numbers);
 
-            assert.equal(expected, actual);
+            assert.equal(actual, expected);
         });
 
     });
@@ -66,7 +66,7 @@ describe('Calculator', function () {
             }
 
             var actual = sut.divide(numbers);
-            assert.equal(expected, actual);
+            assert.equal(actual, expected);
         });
 
     });
@@ -77,7 +77,7 @@ describe('Calculator', function () {
             var numbers = [2,3];
             var expected = 6;
             var actual = sut.multiply(numbers);
-            assert.equal(expected, actual);
+            assert.equal(actual, expected);
         });
 
         it('should throw TypeError if params are NaN', function () {
@@ -96,7 +96,7 @@ describe('Calculator', function () {
             }
 
             var actual = sut.multiply(numbers);
-            assert.equal(expected, actual);
+            assert.equal(actual, expected);
         });
 
     });
@@ -107,7 +107,7 @@ describe('Calculator', function () {
             var numbers = [2,1];
             var expected = 1;
             var actual = sut.subtract(numbers);
-            assert.equal(expected, actual);
+            assert.equal(actual, expected);
         });
 
         it('should throw TypeError if params are NaN', function () {
@@ -126,14 +126,14 @@ describe('Calculator', function () {
             }
 
             var actual = sut.subtract(numbers);
-            assert.equal(expected, actual);
+            assert.equal(actual, expected);
         });
 
         it('should handle negative numbers', function () {
             var numbers = [-2, -3];
             var expected = 1;
             var actual = sut.subtract(numbers);
-            assert.equal(expected, actual);
+            assert.equal(actual, expected);
         });
 
     });
