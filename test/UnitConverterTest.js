@@ -39,6 +39,15 @@ describe('UnitConverter', function () {
                 assert.equal(actual, expected);
             });
 
+
+            it('should convert km to feet', function () {
+                var km = 1;
+                var expected = 3280.8399;
+                var actual = sut.distance(km, kmTo.feet);
+                assert.equal(actual, expected);
+            });
+
+
         });
 
         describe('Miles', function () {
@@ -50,6 +59,29 @@ describe('UnitConverter', function () {
                 assert.equal(actual, expected);
             });
 
+
+            it('should convert miles to meters', function () {
+                var miles = 12;
+                var expected = 19312.128;
+                var actual = sut.distance(miles, milesTo.meters);
+                assert.equal(actual, expected);
+            });
+
+            it('should convert miles to yards', function () {
+                var miles = 3;
+                var expected = 5280;
+                var actual = sut.distance(miles, milesTo.yards);
+                assert.equal(actual, expected);
+            });
+
+            it('should convert miles to feet', function () {
+                var miles = 0.5;
+                var expected = 2640;
+                var actual = sut.distance(miles, milesTo.feet);
+                assert.equal(actual, expected);
+            });
+
+
         });
 
         describe('Meters', function () {
@@ -60,6 +92,28 @@ describe('UnitConverter', function () {
                 var actual = sut.distance(meters, metersTo.yards);
                 assert.equal(actual, expected);
             });
+
+            it('should convert meters to kilometers', function () {
+                var meters = 2354;
+                var expected = 2.354;
+                var actual = sut.distance(meters, metersTo.km);
+                assert.equal(actual, expected);
+            });
+
+            it('should convert meters to miles', function () {
+                var meters = 3498;
+                var expected = 2.17356;
+                var actual = sut.distance(meters, metersTo.miles);
+                assert.equal(actual, expected);
+            });
+
+            it('should convert meters to feet', function () {
+                var meters = 34;
+                var expected = 111.54856;
+                var actual = sut.distance(meters, metersTo.feet);
+                assert.equal(actual, expected);
+            });
+
         });
 
         describe('yards', function () {
@@ -70,6 +124,29 @@ describe('UnitConverter', function () {
                 var actual = sut.distance(yards, yardsTo.meters);
                 assert.equal(actual, expected);
             });
+
+            it('should convert yards to kilometers', function () {
+                var yards = 4500;
+                var expected = 4.1148;
+                var actual = sut.distance(yards, yardsTo.km);
+                assert.equal(actual, expected);
+            });
+
+
+            it('should convert yards to miles', function () {
+                var yards = 5600;
+                var expected = 3.1808;
+                var actual = sut.distance(yards, yardsTo.miles);
+                assert.equal(actual, expected);
+            });
+
+            it('should convert yards to feet', function () {
+                var yards = 42;
+                var expected = 126;
+                var actual = sut.distance(yards, yardsTo.feet);
+                assert.equal(actual, expected);
+            });
+
         });
 
     });
