@@ -9,7 +9,7 @@ function DistanceConverter() {
 }
 
 DistanceConverter.prototype.kmConversion = function(km, ratio) {
-
+    return c.multiply([km, ratio]).toFixed(5);
 };
 
 DistanceConverter.prototype.kmToMiles = function(km) {
