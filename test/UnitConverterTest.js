@@ -22,6 +22,14 @@ describe('UnitConverter', function () {
             assert.throws(function() {sut.distance(negativeDistance, ratio)}, TypeError, "Input can't be a negative number");
         });
 
+
+        it('should only accept positive number for ratio', function () {
+            var distance = 10;
+            var negativeRatio = -1;
+            assert.throws(function() {sut.distance(distance, negativeRatio)}, TypeError, "Input can't be a negative number");
+        });
+
+
         describe('Kilometers', function () {
 
             it('should convert kilometers to miles', function () {
@@ -52,7 +60,6 @@ describe('UnitConverter', function () {
                 var actual = sut.distance(km, kmTo.feet);
                 assert.equal(actual, expected);
             });
-
 
         });
 
@@ -173,8 +180,6 @@ describe('UnitConverter', function () {
             assert.equal(actual, expected);
         });
 
-
     });
-
 
 });
