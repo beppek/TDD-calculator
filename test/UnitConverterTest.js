@@ -19,16 +19,14 @@ describe('UnitConverter', function () {
         it('should only accept positive number for distance', function () {
             var negativeDistance = -12;
             var ratio = 1;
-            assert.throws(function() {sut.distance(negativeDistance, ratio)}, TypeError, "Input can't be a negative number");
+            assert.throws(function() {sut.distance(negativeDistance, ratio)}, Error, "Input can't be a negative number");
         });
-
 
         it('should only accept positive number for ratio', function () {
             var distance = 10;
             var negativeRatio = -1;
-            assert.throws(function() {sut.distance(distance, negativeRatio)}, TypeError, "Input can't be a negative number");
+            assert.throws(function() {sut.distance(distance, negativeRatio)}, Error, "Input can't be a negative number");
         });
-
 
         describe('Kilometers', function () {
 
