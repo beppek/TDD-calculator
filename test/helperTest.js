@@ -3,7 +3,6 @@ var chai = require('chai');
 
 var assert = chai.assert;
 
-
 describe('Numbers helper', function () {
     var sut = require('../app/model/helpers/numbers');
 
