@@ -11,7 +11,7 @@ describe('view', function () {
     jsdom();
 
     it('should add eventlisteners to buttons in div with id calculator', function () {
-        document.body.innerHTML = '<div id="calculator"><button>1</buttton><button>2</buttton></div><p id="input"></p>';
+        document.body.innerHTML = '<div id="calculator"><button>1</button><button>2</button></div><p id="input"></p>';
         sut.addEvents();
         var btns = document.getElementsByTagName('button');
         var i;
@@ -19,7 +19,7 @@ describe('view', function () {
             btns[i].click();
         }
         var expected = '1 2 ';
-        var actual = document.getElementById('input').firstChild.nodeValue;
+        var actual = document.getElementById('input').innerHTML;
         assert.equal(actual, expected);
     });
 
