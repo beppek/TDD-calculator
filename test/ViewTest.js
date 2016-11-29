@@ -97,6 +97,25 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should call divide if divide operator is selected', function () {
+        createHTMLStub();
+        var inputDisplay = document.getElementById('inputDisplay');
+        inputDisplay.innerHTML = '6 / 2';
+        sut.printResult();
+        var expected = '3';
+        var actual = document.getElementById('result').innerHTML;
+        assert.equal(actual, expected);
+    });
+
+    it('should call multiply if multiply operator is selected', function () {
+        createHTMLStub();
+        var inputDisplay = document.getElementById('inputDisplay');
+        inputDisplay.innerHTML = '2 * 2';
+        sut.printResult();
+        var expected = '4';
+        var actual = document.getElementById('result').innerHTML;
+        assert.equal(actual, expected);
+    });
 
     function createHTMLStub() {
         var html = '<div id="app">' +
