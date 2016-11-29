@@ -1,6 +1,7 @@
 var View = require('./view/View');
-var v = new View();
+var v;
 
 document.addEventListener('DOMContentLoaded', function() {
+    v = new View();
     v.init();
 });

@@ -5,7 +5,6 @@ var operator;
 
 function View() {
     display = document.getElementById('inputDisplay');
-    console.log(operator);
 }
 
 View.prototype.init = function() {

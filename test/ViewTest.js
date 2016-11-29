@@ -26,20 +26,30 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should print to p tag with id inputDisplay', function () {
+        createHTMLStub();
+        var expected = 'Print this';
+        sut.printToInputDisplay('Print this');
+        var actual = document.getElementById('inputDisplay').innerHTML;
+        assert.equal(actual, expected);
+    });
+
+
     function createHTMLStub() {
-        document.body.innerHTML =   '<div id="app">' +
-                                        '<p id="inputDisplay"></p>' +
-                                    '<div id="calculator">' +
-                                        '<div id="operators">' +
-                                            '<button>+</button><button>-</button><button>/</button><button>*</button>' +
-                                        '</div>' +
-                                        '<div>' +
-                                            '<button>1</button><button>2</button><button>3</button>' +
-                                        '</div>' +
-                                        '<div>' +
-                                            '<button id="calculate">=</button>' +
-                                        '</div>' +
-                                    '</div>';
+        var html = '<div id="app">' +
+                        '<p id="inputDisplay"></p>' +
+                    '<div id="calculator">' +
+                        '<div id="operators">' +
+                            '<button>+</button><button>-</button><button>/</button><button>*</button>' +
+                        '</div>' +
+                        '<div>' +
+                            '<button>1</button><button>2</button><button>3</button>' +
+                        '</div>' +
+                        '<div>' +
+                            '<button id="calculate">=</button>' +
+                        '</div>' +
+                    '</div>';
+        document.body.innerHTML = html;
         sut = new View();
     }
 
