@@ -1,6 +1,7 @@
 'use strict';
 
 var chai = require('chai');
+var sinon = require('sinon');
 var jsdom = require('mocha-jsdom');
 var View = require('../app/view/View');
 
@@ -35,15 +36,35 @@ describe('CalculatorView', function () {
     });
 
     it('should return true when value is operator', function () {
-        createHTMLStub();
         var value = '+';
         assert.isTrue(sut.isOperator(value));
     });
 
     it('should return false when value is not operator', function () {
-        createHTMLStub();
         var value = '0';
         assert.isFalse(sut.isOperator(value));
+    });
+
+    it('should print operator with white space on either side', function () {
+        createHTMLStub();
+        var stub = sinon.stub(window.event);
+        stub.target = document.createElement('button');
+        stub.target.innerHTML = '+';
+        var expected = ' + ';
+        sut.handleClick(stub);
+        var actual = document.getElementById('inputDisplay').innerHTML;
+        assert.equal(actual, expected);
+    });
+
+    it('should print number without white space', function () {
+        createHTMLStub();
+        var stub = sinon.stub(window.event);
+        stub.target = document.createElement('button');
+        stub.target.innerHTML = '1';
+        var expected = '1';
+        sut.handleClick(stub);
+        var actual = document.getElementById('inputDisplay').innerHTML;
+        assert.equal(actual, expected);
     });
 
 

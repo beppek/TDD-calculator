@@ -1,10 +1,10 @@
 'use strict';
 
-var display;
-var operator;
+var Calculator = require('../model/Calculator');
+var c;
 
 function View() {
-    display = document.getElementById('inputDisplay');
+    c = new Calculator();
 }
 
 View.prototype.init = function() {
@@ -25,25 +25,21 @@ View.prototype.handleClick = function(event) {
     if (!isNaN(value)) {
         this.printToInputDisplay(value);
     } else if (this.isOperator(value)) {
-        this.handleOperator(value);
+        this.printToInputDisplay(' ' + value + ' ');
     }
 };
 
 View.prototype.printToInputDisplay = function(value) {
+    var display = document.getElementById('inputDisplay');
     var inputValue = document.createTextNode(value);
     display.appendChild(inputValue);
 };
 
 View.prototype.isOperator = function(value) {
+    if (value === '+' || value === '-' || value === '*' || value === '/') {
+        return true;
+    }
     return false;
 };
-
-View.prototype.handleOperator = function(value) {
-    if (operator === undefined) {
-        operator = value;
-    } else if (operator === value) {
-
-    }
-}
 
 module.exports = View;
