@@ -12,13 +12,13 @@ describe('view', function () {
 
     it('should add eventlisteners to buttons in div with id calculator', function () {
         document.body.innerHTML = '<div id="calculator"><button>1</button><button>2</button></div><p id="input"></p>';
-        sut.addEvents();
+        sut.init();
         var btns = document.getElementsByTagName('button');
         var i;
         for (i = 0; i < btns.length; i += 1) {
             btns[i].click();
         }
-        var expected = '1 2 ';
+        var expected = '12';
         var actual = document.getElementById('input').innerHTML;
         assert.equal(actual, expected);
     });
