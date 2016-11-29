@@ -67,6 +67,26 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should calculate if equal button is clicked', function () {
+        createHTMLStub();
+        sut.init();
+        var operators = document.getElementById('operators');
+        var plusBtn = operators.firstElementChild;
+        var numpad = document.getElementById('numpad');
+        var btn1 = numpad.firstChild.firstChild;
+        var eqBtn = document.getElementById('calculate');
+        btn1.click();
+        plusBtn.click();
+        btn1.click();
+        eqBtn.click();
+        var expected = '2';
+        var actual = document.getElementById('result').innerHTML;
+        // var expected = '1 + 1';
+        // var actual = document.getElementById('inputDisplay').innerHTML;
+        assert.equal(actual, expected);
+    });
+
+
 
     function createHTMLStub() {
         var html = '<div id="app">' +
@@ -75,11 +95,14 @@ describe('CalculatorView', function () {
                         '<div id="operators">' +
                             '<button>+</button><button>-</button><button>/</button><button>*</button>' +
                         '</div>' +
-                        '<div>' +
-                            '<button>1</button><button>2</button><button>3</button>' +
+                        '<div id="numpad">' +
+                            '<div><button>1</button><button>2</button><button>3</button></div>' +
                         '</div>' +
                         '<div>' +
                             '<button id="calculate">=</button>' +
+                        '</div>' +
+                        '<div>' +
+                            '<p id="result"></p>' +
                         '</div>' +
                     '</div>';
         document.body.innerHTML = html;

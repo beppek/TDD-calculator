@@ -24,8 +24,10 @@ View.prototype.handleClick = function(event) {
     var value = target.firstChild.nodeValue;
     if (!isNaN(value)) {
         this.printToInputDisplay(value);
-    } else if (this.isOperator(value)) {
+    } else if (this.isOperator(value) === true ) {
         this.printToInputDisplay(' ' + value + ' ');
+    } else {
+        this.calculate();
     }
 };
 
@@ -40,6 +42,13 @@ View.prototype.isOperator = function(value) {
         return true;
     }
     return false;
+};
+
+View.prototype.calculate = function() {
+    var result = 0;
+    var resultP = document.getElementById('result');
+    var t = document.createTextNode(result);
+    resultP.appendChild(t);
 };
 
 module.exports = View;
