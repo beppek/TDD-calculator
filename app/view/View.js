@@ -1,7 +1,11 @@
 'use strict';
 
-function View() {
+var display;
+var operator;
 
+function View() {
+    display = document.getElementById('inputDisplay');
+    console.log(operator);
 }
 
 View.prototype.init = function() {
@@ -19,13 +23,28 @@ View.prototype.init = function() {
 View.prototype.handleClick = function(event) {
     var target = event.target;
     var value = target.firstChild.nodeValue;
-    this.printToInputDisplay(value);
+    if (!isNaN(value)) {
+        this.printToInputDisplay(value);
+    } else if (this.isOperator(value)) {
+        this.handleOperator(value);
+    }
 };
 
 View.prototype.printToInputDisplay = function(value) {
-    var inputDisplay = document.getElementById('input');
     var inputValue = document.createTextNode(value);
-    inputDisplay.appendChild(inputValue);
+    display.appendChild(inputValue);
 };
+
+View.prototype.isOperator = function(value) {
+    return false;
+}
+
+View.prototype.handleOperator = function(value) {
+    if (operator === undefined) {
+        operator = value;
+    } else if (operator === value) {
+
+    }
+}
 
 module.exports = View;
