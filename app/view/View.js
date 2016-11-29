@@ -27,7 +27,7 @@ View.prototype.handleClick = function(event) {
     } else if (this.isOperator(value) === true ) {
         this.printToInputDisplay(' ' + value + ' ');
     } else {
-        this.calculate();
+        this.printResult();
     }
 };
 
@@ -44,11 +44,43 @@ View.prototype.isOperator = function(value) {
     return false;
 };
 
-View.prototype.calculate = function() {
-    var result = 0;
+View.prototype.printResult = function() {
+    var input = this.readInput();
+    var result;
+    switch (input.operator) {
+        case '+':
+            result = c.add(input.numbers);
+            break;
+        case '-':
+            result = c.subtract(input.numbers);
+            break;
+        case '*':
+            result = c.multiply(input.numbers);
+            break;
+        case '/':
+            result = c.divide(input.numbers);
+            break;
+    }
     var resultP = document.getElementById('result');
     var t = document.createTextNode(result);
     resultP.appendChild(t);
+};
+
+View.prototype.readInput = function() {
+    var input = document.getElementById('inputDisplay').textContent;
+    var inputs = input.split(" ");
+    var numbers = [];
+    var operator = inputs[1];
+    var i;
+    for (i = 0; i < inputs.length; i += 1) {
+        if (!isNaN(inputs[i])) {
+            numbers.push(parseInt(inputs[i]));
+        }
+    }
+    return {
+        numbers: numbers,
+        operator: operator
+    };
 };
 
 module.exports = View;

@@ -81,8 +81,6 @@ describe('CalculatorView', function () {
         eqBtn.click();
         var expected = '2';
         var actual = document.getElementById('result').innerHTML;
-        // var expected = '1 + 1';
-        // var actual = document.getElementById('inputDisplay').innerHTML;
         assert.equal(actual, expected);
     });
 
