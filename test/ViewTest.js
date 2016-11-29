@@ -5,6 +5,8 @@ var sinon = require('sinon');
 var jsdom = require('mocha-jsdom');
 var View = require('../app/view/View');
 
+var Calculator = require('../app/model/Calculator');
+
 var assert = chai.assert;
 
 describe('CalculatorView', function () {
@@ -67,7 +69,7 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
-    it('should calculate if equal button is clicked', function () {
+    it('should calculate 1+1 if equal button is clicked', function () {
         createHTMLStub();
         sut.init();
         var operators = document.getElementById('operators');
@@ -84,6 +86,16 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
+
+    it('should call subtract if subtract operator is selected', function () {
+        createHTMLStub();
+        var inputDisplay = document.getElementById('inputDisplay');
+        inputDisplay.innerHTML = '2 - 1';
+        sut.printResult();
+        var expected = '1';
+        var actual = document.getElementById('result').innerHTML;
+        assert.equal(actual, expected);
+    });
 
 
     function createHTMLStub() {
@@ -104,7 +116,28 @@ describe('CalculatorView', function () {
                         '</div>' +
                     '</div>';
         document.body.innerHTML = html;
-        sut = new View();
+        sut = new View(new CalculatorStub());
     }
 
 });
+
+/**
+ * JavaScript pre ES6 way of extending a "class"
+ */
+function CalculatorStub() {
+    Calculator.call(this);
+}
+CalculatorStub.prototype = Object.create(Calculator.prototype);
+CalculatorStub.prototype.constructor = CalculatorStub;
+CalculatorStub.prototype.add = function(numbers) {
+    return 1+1;
+};
+CalculatorStub.prototype.subtract = function(numbers) {
+    return 2-1;
+};
+CalculatorStub.prototype.multiply = function(numbers) {
+    return 2*2;
+};
+CalculatorStub.prototype.divide = function(numbers) {
+    return 6/2;
+};

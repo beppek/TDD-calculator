@@ -1,10 +1,9 @@
 'use strict';
 
-var Calculator = require('../model/Calculator');
-var c;
+var calculator;
 
-function View() {
-    c = new Calculator();
+function View(c) {
+    calculator = c;
 }
 
 View.prototype.init = function() {
@@ -49,16 +48,16 @@ View.prototype.printResult = function() {
     var result;
     switch (input.operator) {
         case '+':
-            result = c.add(input.numbers);
+            result = calculator.add(input.numbers);
             break;
         case '-':
-            result = c.subtract(input.numbers);
+            result = calculator.subtract(input.numbers);
             break;
         case '*':
-            result = c.multiply(input.numbers);
+            result = calculator.multiply(input.numbers);
             break;
         case '/':
-            result = c.divide(input.numbers);
+            result = calculator.divide(input.numbers);
             break;
     }
     var resultP = document.getElementById('result');

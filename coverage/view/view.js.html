@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.5% </span>
+        <span class="strong">91.49% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>42/48</span>
+        <span class='fraction'>43/47</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">81.25% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>13/16</span>
+        <span class='fraction'>14/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.5% </span>
+        <span class="strong">91.49% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>42/48</span>
+        <span class='fraction'>43/47</span>
       </div>
     </div>
   </div>
@@ -127,14 +127,12 @@
 82
 83
 84
-85
-86</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+85</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -175,39 +173,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -215,11 +213,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-var Calculator = require('../model/Calculator');
-var c;
+var calculator;
 &nbsp;
-function View() {
-    c = new Calculator();
+function View(c) {
+    calculator = c;
 }
 &nbsp;
 View.prototype.init = function() {
@@ -242,7 +239,7 @@ View.prototype.handleClick = function(event) {
     } else if (this.isOperator(value) === true ) {
         this.printToInputDisplay(' ' + value + ' ');
     } else {
-        this.calculate();
+        this.printResult();
     }
 };
 &nbsp;
@@ -259,27 +256,27 @@ View.prototype.isOperator = function(value) {
     return false;
 };
 &nbsp;
-View.prototype.calculate = function() {
+View.prototype.printResult = function() {
     var input = this.readInput();
     var result;
     switch (input.operator) {
         case '+':
-            result = c.add(input.numbers);
+            result = calculator.add(input.numbers);
             break;
-<span class="branch-1 cbranch-no" title="branch not covered" >        case '-':</span>
-<span class="cstat-no" title="statement not covered" >            result = c.subtract(input.numbers);</span>
-<span class="cstat-no" title="statement not covered" >            break;</span>
+        case '-':
+            result = calculator.subtract(input.numbers);
+            break;
 <span class="branch-2 cbranch-no" title="branch not covered" >        case '*':</span>
-<span class="cstat-no" title="statement not covered" >            result = c.multiply(input.numbers);</span>
+<span class="cstat-no" title="statement not covered" >            result = calculator.multiply(input.numbers);</span>
 <span class="cstat-no" title="statement not covered" >            break;</span>
 <span class="branch-3 cbranch-no" title="branch not covered" >        case '/':</span>
-<span class="cstat-no" title="statement not covered" >            result = c.divide(input.numbers);</span>
+<span class="cstat-no" title="statement not covered" >            result = calculator.divide(input.numbers);</span>
 <span class="cstat-no" title="statement not covered" >            break;</span>
     }
     var resultP = document.getElementById('result');
     var t = document.createTextNode(result);
     resultP.appendChild(t);
-}
+};
 &nbsp;
 View.prototype.readInput = function() {
     var input = document.getElementById('inputDisplay').textContent;
@@ -304,7 +301,7 @@ module.exports = View;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Nov 29 2016 19:50:33 GMT+0100 (W. Europe Standard Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Nov 29 2016 21:43:52 GMT+0100 (W. Europe Standard Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>
