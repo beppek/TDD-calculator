@@ -34,6 +34,18 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should return true when value is operator', function () {
+        createHTMLStub();
+        var value = '+';
+        assert.isTrue(sut.isOperator(value));
+    });
+
+    it('should return false when value is not operator', function () {
+        createHTMLStub();
+        var value = '0';
+        assert.isFalse(sut.isOperator(value));
+    });
+
 
     function createHTMLStub() {
         var html = '<div id="app">' +

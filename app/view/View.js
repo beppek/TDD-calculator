@@ -36,7 +36,7 @@ View.prototype.printToInputDisplay = function(value) {
 
 View.prototype.isOperator = function(value) {
     return false;
-}
+};
 
 View.prototype.handleOperator = function(value) {
     if (operator === undefined) {

@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "browser-sync start --server --files *.html, css/*.css js/*.js",
+    "start": "npm run build && browser-sync start --server --files *.html, css/*.css js/*.js",
     "test": "nyc --reporter=html --reporter=text mocha",
     "build": "webpack ./app/app.js ./js/bundle.js"
   },
