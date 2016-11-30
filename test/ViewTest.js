@@ -145,6 +145,7 @@ describe('CalculatorView', function () {
     });
 
     it('should set disabled to false for all buttons', function () {
+        createHTMLStub();
         var operators = document.getElementById('operators').childNodes;
         var i;
         for (i = 0; i < operators.length; i += 1) {
@@ -157,6 +158,16 @@ describe('CalculatorView', function () {
             assert.equal(actual, expected);
         }
     });
+
+    it('should clear result', function () {
+        createHTMLStub();
+        var resultDiv = document.getElementById('result');
+        resultDiv.textContent = '2';
+        var expected = '';
+        var actual = resultDiv.textContent;
+        assert.equal(actual, expected);
+    });
+
 
     function createHTMLStub() {
         var html = '<div id="app">' +
