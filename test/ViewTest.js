@@ -144,6 +144,19 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should set disabled to false for all buttons', function () {
+        var operators = document.getElementById('operators').childNodes;
+        var i;
+        for (i = 0; i < operators.length; i += 1) {
+            operators[i].disabled = true;
+        }
+        sut.clearView();
+        for (i = operators.length - 1; i >= 0; i -= 1) {
+            var expected = false;
+            var actual = operators[i].disabled;
+            assert.equal(actual, expected);
+        }
+    });
 
     function createHTMLStub() {
         var html = '<div id="app">' +
