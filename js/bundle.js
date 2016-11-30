@@ -44,12 +44,17 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var View = __webpack_require__(1);
-	var Calculator = __webpack_require__(2);
-	var v;
+	var CalculatorView = __webpack_require__(1);
+	var ConverterView = __webpack_require__(2);
+	var Calculator = __webpack_require__(3);
+	var UnitConverter = __webpack_require__(5);
 
 	document.addEventListener('DOMContentLoaded', function() {
-	    v = new View(new Calculator());
+	    if (document.title === 'Calculator') {
+	        new CalculatorView(new Calculator());
+	    } else {
+	        new ConverterView(new UnitConverter());
+	    }
 	});
 
 /***/ },
@@ -60,7 +65,7 @@
 
 	var calculator;
 
-	function View(c) {
+	function CalculatorView(c) {
 	    calculator = c;
 	    var calculatorDiv = document.getElementById('calculator');
 	    var calculatorBtns = calculatorDiv.getElementsByTagName('button');
@@ -73,7 +78,7 @@
 	    }
 	}
 
-	View.prototype.handleClick = function(event) {
+	CalculatorView.prototype.handleClick = function(event) {
 	    var target = event.target;
 	    var value = target.firstChild.nodeValue;
 	    if (!isNaN(value)) {
@@ -82,26 +87,26 @@
 	        this.printToInputDisplay(' ' + value + ' ');
 	        this.disableOperatorButtons(value);
 	    } else if (target.id === 'clear') {
-	        this.clearView();
+	        this.clearCalculatorView();
 	    } else {
 	        this.printResult();
 	    }
 	};
 
-	View.prototype.printToInputDisplay = function(value) {
+	CalculatorView.prototype.printToInputDisplay = function(value) {
 	    var display = document.getElementById('inputDisplay');
 	    var inputValue = document.createTextNode(value);
 	    display.appendChild(inputValue);
 	};
 
-	View.prototype.isOperator = function(value) {
+	CalculatorView.prototype.isOperator = function(value) {
 	    if (value === '+' || value === '-' || value === '*' || value === '/') {
 	        return true;
 	    }
 	    return false;
 	};
 
-	View.prototype.disableOperatorButtons = function(value) {
+	CalculatorView.prototype.disableOperatorButtons = function(value) {
 	    var operators = document.getElementById('operators').childNodes;
 	    var i;
 	    for (i = 0; i < operators.length; i += 1) {
@@ -111,7 +116,7 @@
 	    }
 	};
 
-	View.prototype.printResult = function() {
+	CalculatorView.prototype.printResult = function() {
 	    var input = this.readInput();
 	    var result;
 	    switch (input.operator) {
@@ -133,7 +138,7 @@
 	    resultP.appendChild(t);
 	};
 
-	View.prototype.readInput = function() {
+	CalculatorView.prototype.readInput = function() {
 	    var input = document.getElementById('inputDisplay').textContent;
 	    var inputs = input.split(" ");
 	    var numbers = [];
@@ -150,7 +155,7 @@
 	    };
 	};
 
-	View.prototype.clearView = function() {
+	CalculatorView.prototype.clearView = function() {
 	    document.getElementById('inputDisplay').textContent = '';
 	    var operators = document.getElementById('operators').childNodes;
 	    var i;
@@ -160,15 +165,35 @@
 	    document.getElementById('result').textContent = '';
 	};
 
-	module.exports = View;
+	module.exports = CalculatorView;
 
 /***/ },
 /* 2 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var uc;
+
+	function ConverterView(converter) {
+	    uc = converter;
+	}
+
+	ConverterView.prototype.addListeners = function() {
+	    var convertDistanceBtn = document.getElementById('distanceConverter').getElementsByTagName('button')[0];
+	    var convertTempBtn = document.getElementById('temperatureConverter').getElementsByTagName('button')[0];
+
+	}
+
+	module.exports = ConverterView;
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var nums = __webpack_require__(3);
+	var nums = __webpack_require__(4);
 
 	function Calculator() {
 
@@ -216,7 +241,7 @@
 	module.exports = Calculator;
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -241,6 +266,58 @@
 	        }
 	    });
 	}
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * A simple unit converter
+	 *
+	 * @author beppek
+	 * @version 0.0.1
+	 *
+	 * ex usage:
+	 * var UnitConverter = require('../model/UnitConverter');
+	 * var convert = new UnitConverter();
+	 * convert.celsiusToFahrenheit(32);
+	 */
+	'use strict';
+
+	var Calculator = __webpack_require__(3);
+	var nums = __webpack_require__(4);
+
+	function UnitConverter() {
+
+	}
+
+	/**
+	 * Will convert one distance to another with at most 5 decimals
+	 * @param distance - a number to be converted
+	 * @param ratio - the conversion ratio between the selected units. Use files in ./units/
+	 */
+	UnitConverter.prototype.distance = function(distance, ratio) {
+	    nums.checkPositive([distance, ratio]);
+	    return (distance * ratio).toFixed(5);
+	};
+
+	/**
+	 * Converts a given temperature from celsius to fahrenheit
+	 * @return converted temperature as a number with at most 2 decimal points
+	 */
+	UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
+	    return ((celsius, 1.8) + 32).toFixed(2);
+	};
+
+	/**
+	 * Converts a given temperature from fahrenheit to celsius
+	 * @return converted temperature as a number with at most 2 decimal points
+	 */
+	UnitConverter.prototype.fahrenheitToCelsius = function(fahrenheit) {
+	    return ((fahrenheit - 32) * 0.5556).toFixed(2);
+	};
+
+	module.exports = UnitConverter;
 
 /***/ }
 /******/ ]);

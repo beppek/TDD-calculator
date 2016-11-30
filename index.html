@@ -1,12 +1,17 @@
 <!doctype html>
     <head>
         <meta charset='utf-8'>
-        <title>TDD Calculator</title>
+        <title>Calculator</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' href='css/main.css'>
     </head>
     <body>
-
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Calculator</a></li>
+                <li><a href="unitconverter.html">Unit Converter</a></li>
+            </ul>
+        </div>
         <div id="app">
             <div class="row">
                 <p id="inputDisplay"></p>
@@ -44,47 +49,10 @@
                 <div class="row">
                     <button id="calculate">=</button>
                 </div>
+                <div class="row">
+                    <p id="result"></p>
+                </div>
             </div>
-            <div class="row">
-                Distance: <br />
-                <input type="text" id="distance">
-                <select name="distanceUnit1" id="distanceUnit1">
-                    <option value="from" disabled selected>-- From --</option>
-                    <option value="km">Kilometers</option>
-                    <option value="miles">Miles</option>
-                    <option value="meters">Meters</option>
-                    <option value="yards">Yards</option>
-                    <option value="feet">Feet</option>
-                </select>
-                <select name="distanceUnit2" id="distanceUnit2">
-                    <option value="to" disabled selected>-- To --</option>
-                    <option value="km">Kilometers</option>
-                    <option value="miles">Miles</option>
-                    <option value="meters">Meters</option>
-                    <option value="yards">Yards</option>
-                    <option value="feet">Feet</option>
-                </select>
-                <button>Convert</button>
-            </div>
-            <div class="row">
-                Temperature: <br />
-                <input type="text" id="temperature">
-                <select name="tempUnit1" id="tempUnit1">
-                    <option value="from" disabled selected>-- From --</option>
-                    <option value="celsius">Celsius</option>
-                    <option value="fahrenheit">Fahrenheit</option>
-                </select>
-                <select name="tempUnit2" id="tempUnit2">
-                    <option value="to" disabled selected>-- To --</option>
-                    <option value="celsius">Celsius</option>
-                    <option value="fahrenheit">Fahrenheit</option>
-                </select>
-                <button>Convert</button>
-            </div>
-            <div class="row">
-                <p id="result"></p>
-            </div>
-
         </div>
 
         <script src='./js/bundle.js'></script>

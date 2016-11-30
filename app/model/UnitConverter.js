@@ -14,10 +14,8 @@
 var Calculator = require('./Calculator');
 var nums = require('./helpers/numbers.js');
 
-var c;
-
 function UnitConverter() {
-    c = new Calculator();
+
 }
 
 /**
@@ -27,7 +25,7 @@ function UnitConverter() {
  */
 UnitConverter.prototype.distance = function(distance, ratio) {
     nums.checkPositive([distance, ratio]);
-    return c.multiply([distance, ratio]).toFixed(5);
+    return (distance * ratio).toFixed(5);
 };
 
 /**
@@ -35,7 +33,7 @@ UnitConverter.prototype.distance = function(distance, ratio) {
  * @return converted temperature as a number with at most 2 decimal points
  */
 UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
-    return (c.multiply([celsius, 1.8]) + 32).toFixed(2);
+    return ((celsius * 1.8) + 32).toFixed(2);
 };
 
 /**
@@ -43,7 +41,7 @@ UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
  * @return converted temperature as a number with at most 2 decimal points
  */
 UnitConverter.prototype.fahrenheitToCelsius = function(fahrenheit) {
-    return c.multiply([fahrenheit - 32, 0.5556]).toFixed(2);
+    return ((fahrenheit - 32) * 0.5556).toFixed(2);
 };
 
 module.exports = UnitConverter;

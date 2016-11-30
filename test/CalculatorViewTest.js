@@ -3,7 +3,7 @@
 var chai = require('chai');
 var sinon = require('sinon');
 var jsdom = require('mocha-jsdom');
-var View = require('../app/view/View');
+var CalculatorView = require('../app/view/CalculatorView');
 
 var Calculator = require('../app/model/Calculator');
 
@@ -197,7 +197,7 @@ describe('CalculatorView', function () {
                         '</div>' +
                     '</div>';
         document.body.innerHTML = html;
-        sut = new View(new CalculatorStub());
+        sut = new CalculatorView(new CalculatorStub());
     }
 
 });
