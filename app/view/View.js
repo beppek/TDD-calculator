@@ -24,7 +24,7 @@ View.prototype.handleClick = function(event) {
         this.printToInputDisplay(' ' + value + ' ');
         this.disableOperatorButtons(value);
     } else if (target.id === 'clear') {
-
+        this.clearView();
     } else {
         this.printResult();
     }
