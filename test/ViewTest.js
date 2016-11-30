@@ -153,7 +153,7 @@ describe('CalculatorView', function () {
                             '<button>+</button><button>-</button><button>/</button><button>*</button>' +
                         '</div>' +
                         '<div id="numpad">' +
-                            '<div><button>1</button><button>2</button><button>3</button></div>' +
+                            '<div><button>1</button><button>2</button><button>3</button></div><button id="clear">clear</button>' +
                         '</div>' +
                         '<div>' +
                             '<button id="calculate">=</button>' +
