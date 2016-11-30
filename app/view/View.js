@@ -25,6 +25,7 @@ View.prototype.handleClick = function(event) {
         this.printToInputDisplay(value);
     } else if (this.isOperator(value) === true ) {
         this.printToInputDisplay(' ' + value + ' ');
+        this.disableOperatorButtons(value);
     } else {
         this.printResult();
     }
@@ -41,6 +42,10 @@ View.prototype.isOperator = function(value) {
         return true;
     }
     return false;
+};
+
+View.prototype.disableOperatorButtons = function(value) {
+
 };
 
 View.prototype.printResult = function() {

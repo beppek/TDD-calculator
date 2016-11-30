@@ -117,6 +117,26 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should disable all operator buttons except the one "clicked"', function () {
+        createHTMLStub();
+        var value = '+';
+        sut.disableOperatorButtons(value);
+        var operators = document.getElementById('operators').childNodes;
+        var i;
+        for (i = 0; i < operators.length; i += 1) {
+            if (operators[i].textContent === value) {
+                var expected = false;
+                var actual = operators[i].disabled;
+                assert.equal(actual, expected);
+            } else {
+                var expected = true;
+                var actual = operators[i].disabled;
+                assert.equal(actual, expected);
+            }
+        }
+    });
+
+
     function createHTMLStub() {
         var html = '<div id="app">' +
                         '<p id="inputDisplay"></p>' +
