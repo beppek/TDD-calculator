@@ -15,7 +15,6 @@ describe('CalculatorView', function () {
 
     it('should add eventlisteners to buttons in div with id calculator', function () {
         createHTMLStub();
-        sut.init();
         var btns = document.getElementsByTagName('button');
         var i;
         for (i = 0; i < btns.length; i += 1) {
@@ -25,7 +24,7 @@ describe('CalculatorView', function () {
             }
         }
         var expected = '123';
-        var actual = document.getElementById('inputDisplay').innerHTML;
+        var actual = document.getElementById('inputDisplay').textContent;
         assert.equal(actual, expected);
     });
 
@@ -33,7 +32,7 @@ describe('CalculatorView', function () {
         createHTMLStub();
         var expected = 'Print this';
         sut.printToInputDisplay('Print this');
-        var actual = document.getElementById('inputDisplay').innerHTML;
+        var actual = document.getElementById('inputDisplay').textContent;
         assert.equal(actual, expected);
     });
 
@@ -51,10 +50,10 @@ describe('CalculatorView', function () {
         createHTMLStub();
         var stub = sinon.stub(window.event);
         stub.target = document.createElement('button');
-        stub.target.innerHTML = '+';
+        stub.target.textContent = '+';
         var expected = ' + ';
         sut.handleClick(stub);
-        var actual = document.getElementById('inputDisplay').innerHTML;
+        var actual = document.getElementById('inputDisplay').textContent;
         assert.equal(actual, expected);
     });
 
@@ -62,16 +61,15 @@ describe('CalculatorView', function () {
         createHTMLStub();
         var stub = sinon.stub(window.event);
         stub.target = document.createElement('button');
-        stub.target.innerHTML = '1';
+        stub.target.textContent = '1';
         var expected = '1';
         sut.handleClick(stub);
-        var actual = document.getElementById('inputDisplay').innerHTML;
+        var actual = document.getElementById('inputDisplay').textContent;
         assert.equal(actual, expected);
     });
 
     it('should calculate 1+1 if equal button is clicked', function () {
         createHTMLStub();
-        sut.init();
         var operators = document.getElementById('operators');
         var plusBtn = operators.firstElementChild;
         var numpad = document.getElementById('numpad');
@@ -82,7 +80,7 @@ describe('CalculatorView', function () {
         btn1.click();
         eqBtn.click();
         var expected = '2';
-        var actual = document.getElementById('result').innerHTML;
+        var actual = document.getElementById('result').textContent;
         assert.equal(actual, expected);
     });
 
@@ -90,30 +88,30 @@ describe('CalculatorView', function () {
     it('should call subtract if subtract operator is selected', function () {
         createHTMLStub();
         var inputDisplay = document.getElementById('inputDisplay');
-        inputDisplay.innerHTML = '2 - 1';
+        inputDisplay.textContent = '2 - 1';
         sut.printResult();
         var expected = '1';
-        var actual = document.getElementById('result').innerHTML;
+        var actual = document.getElementById('result').textContent;
         assert.equal(actual, expected);
     });
 
     it('should call divide if divide operator is selected', function () {
         createHTMLStub();
         var inputDisplay = document.getElementById('inputDisplay');
-        inputDisplay.innerHTML = '6 / 2';
+        inputDisplay.textContent = '6 / 2';
         sut.printResult();
         var expected = '3';
-        var actual = document.getElementById('result').innerHTML;
+        var actual = document.getElementById('result').textContent;
         assert.equal(actual, expected);
     });
 
     it('should call multiply if multiply operator is selected', function () {
         createHTMLStub();
         var inputDisplay = document.getElementById('inputDisplay');
-        inputDisplay.innerHTML = '2 * 2';
+        inputDisplay.textContent = '2 * 2';
         sut.printResult();
         var expected = '4';
-        var actual = document.getElementById('result').innerHTML;
+        var actual = document.getElementById('result').textContent;
         assert.equal(actual, expected);
     });
 
@@ -134,6 +132,16 @@ describe('CalculatorView', function () {
                 assert.equal(actual, expected);
             }
         }
+    });
+
+    it('should clear previous input', function () {
+        createHTMLStub();
+        var inputDisplay = document.getElementById('inputDisplay');
+        inputDisplay.textContent = '6 / 2';
+        sut.clearView();
+        var expected = '';
+        var actual = inputDisplay.textContent;
+        assert.equal(actual, expected);
     });
 
 

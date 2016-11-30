@@ -3,6 +3,5 @@ var Calculator = require('./model/Calculator');
 var v;
 
 document.addEventListener('DOMContentLoaded', function() {
-    v = new View();
-    v.init(new Calculator());
+    v = new View(new Calculator());
 });

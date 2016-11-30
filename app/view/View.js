@@ -4,19 +4,16 @@ var calculator;
 
 function View(c) {
     calculator = c;
-}
-
-View.prototype.init = function() {
     var calculatorDiv = document.getElementById('calculator');
     var calculatorBtns = calculatorDiv.getElementsByTagName('button');
     var i;
     for (i = 0; i < calculatorBtns.length; i += 1) {
+        calculatorBtns[i].disabled = false;
         calculatorBtns[i].addEventListener('click', function(event) {
             this.handleClick(event);
         }.bind(this));
     }
-
-};
+}
 
 View.prototype.handleClick = function(event) {
     var target = event.target;
@@ -45,7 +42,13 @@ View.prototype.isOperator = function(value) {
 };
 
 View.prototype.disableOperatorButtons = function(value) {
-
+    var operators = document.getElementById('operators').childNodes;
+    var i;
+    for (i = 0; i < operators.length; i += 1) {
+        if (operators[i].textContent !== value) {
+            operators[i].disabled = true;
+        }
+    }
 };
 
 View.prototype.printResult = function() {
@@ -85,6 +88,10 @@ View.prototype.readInput = function() {
         numbers: numbers,
         operator: operator
     };
+};
+
+View.prototype.clearView = function() {
+
 };
 
 module.exports = View;
