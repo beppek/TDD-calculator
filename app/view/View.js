@@ -93,7 +93,7 @@ View.prototype.readInput = function() {
 };
 
 View.prototype.clearView = function() {
-
+    document.getElementById('inputDisplay').textContent = '';
 };
 
 module.exports = View;
