@@ -94,6 +94,11 @@ View.prototype.readInput = function() {
 
 View.prototype.clearView = function() {
     document.getElementById('inputDisplay').textContent = '';
+    var operators = document.getElementById('operators').childNodes;
+    var i;
+    for (i = 0; i < operators.length; i += 1) {
+        operators[i].disabled = false;
+    }
 };
 
 module.exports = View;
