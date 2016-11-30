@@ -12,6 +12,9 @@ ConverterView.prototype.addListeners = function() {
     convertDistanceBtn.addEventListener('click', function(event) {
 
     });
+    convertTempBtn.addEventListener('click', function(event) {
+
+    });
 };
 
 module.exports = ConverterView;
