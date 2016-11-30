@@ -169,6 +169,15 @@ describe('CalculatorView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should call clearView function', function () {
+        createHTMLStub();
+        var clearButton = document.getElementById('clear');
+        var spy = sinon.spy(sut, "clearView");
+        clearButton.click();
+        spy.restore();
+        sinon.assert.calledOnce(spy);
+    });
+
 
     function createHTMLStub() {
         var html = '<div id="app">' +

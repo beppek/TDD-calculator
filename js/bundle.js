@@ -50,7 +50,6 @@
 
 	document.addEventListener('DOMContentLoaded', function() {
 	    v = new View(new Calculator());
-	    v.init();
 	});
 
 /***/ },
@@ -74,10 +73,6 @@
 	    }
 	}
 
-	View.prototype.init = function() {
-
-	};
-
 	View.prototype.handleClick = function(event) {
 	    var target = event.target;
 	    var value = target.firstChild.nodeValue;
@@ -86,6 +81,8 @@
 	    } else if (this.isOperator(value) === true ) {
 	        this.printToInputDisplay(' ' + value + ' ');
 	        this.disableOperatorButtons(value);
+	    } else if (target.id === 'clear') {
+	        this.clearView();
 	    } else {
 	        this.printResult();
 	    }
@@ -151,6 +148,16 @@
 	        numbers: numbers,
 	        operator: operator
 	    };
+	};
+
+	View.prototype.clearView = function() {
+	    document.getElementById('inputDisplay').textContent = '';
+	    var operators = document.getElementById('operators').childNodes;
+	    var i;
+	    for (i = 0; i < operators.length; i += 1) {
+	        operators[i].disabled = false;
+	    }
+	    document.getElementById('result').textContent = '';
 	};
 
 	module.exports = View;
