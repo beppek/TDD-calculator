@@ -13,12 +13,13 @@ describe('ConverterView', function () {
     jsdom();
     var sut;
 
-    it('should add event listeners to convert buttons', function () {
+    it('should add event listeners to convert distance button', function () {
         createHTML();
-        var spy = sinon.spy(document, "addEventListener");
+        var btn = document.getElementById('distanceConverter').getElementsByTagName('button')[0];
+        var spy = sinon.spy(btn, "addEventListener");
         sut.addListeners();
         spy.restore();
-        sinon.assert.calledTwice(spy);
+        sinon.assert.calledOnce(spy);
     });
 
     function createHTML() {
