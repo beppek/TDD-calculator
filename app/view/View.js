@@ -99,6 +99,7 @@ View.prototype.clearView = function() {
     for (i = 0; i < operators.length; i += 1) {
         operators[i].disabled = false;
     }
+    document.getElementById('result').textContent = '';
 };
 
 module.exports = View;

@@ -164,6 +164,7 @@ describe('CalculatorView', function () {
         var resultDiv = document.getElementById('result');
         resultDiv.textContent = '2';
         var expected = '';
+        sut.clearView();
         var actual = resultDiv.textContent;
         assert.equal(actual, expected);
     });
