@@ -22,6 +22,17 @@ describe('ConverterView', function () {
         sinon.assert.calledOnce(spy);
     });
 
+
+    it('should add event listener to convert temperature button', function () {
+        createHTML();
+        var btn = document.getElementById('temperatureConverter').getElementsByTagName('button')[0];
+        var spy = sinon.spy(btn, "addEventListener");
+        sut.addListeners();
+        spy.restore();
+        sinon.assert.calledOnce(spy);
+    });
+
+
     function createHTML() {
         var html =  '<div id="app">' +
                         '<div id="distanceConverter">' +
