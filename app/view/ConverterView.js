@@ -15,8 +15,8 @@ ConverterView.prototype.addListeners = function() {
         this.convertDistance();
     }.bind(this));
     convertTempBtn.addEventListener('click', function() {
-
-    });
+        this.convertTemperature();
+    }.bind(this));
 };
 
 ConverterView.prototype.convertDistance = function() {
