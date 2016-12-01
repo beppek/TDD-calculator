@@ -196,7 +196,6 @@ describe('ConverterView', function () {
         assert.equal(actual, expected);
     });
 
-
     function createHTML() {
         var html =  '<div id="app">' +
                         '<div id="distanceConverter">' +

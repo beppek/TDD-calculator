@@ -43,7 +43,7 @@ ConverterView.prototype.convertTemperature = function() {
     var input = parseInt(document.getElementById('temperature').value);
     if (this.isNumber(input)) {
         if (tempUnit1 === tempUnit2) {
-
+            output.textContent = input;
         } else if (tempUnit1 === 'celsius') {
             output.textContent = uc.celsiusToFahrenheit(input) + 'c';
         } else {
