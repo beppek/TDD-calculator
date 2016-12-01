@@ -50,11 +50,16 @@ describe('ConverterView', function () {
         sinon.assert.calledOnce(spy);
     });
 
-
     it('should return false if input is not a number', function () {
         var input = 'p1';
         assert.isFalse(sut.isNumber(input));
     });
+
+    it('should return true if input is a number', function () {
+        var input = '1';
+        assert.isTrue(sut.isNumber(input));
+    });
+
 
     function createHTML() {
         var html =  '<div id="app">' +
