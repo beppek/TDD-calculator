@@ -87,7 +87,7 @@
 	        this.printToInputDisplay(' ' + value + ' ');
 	        this.disableOperatorButtons(value);
 	    } else if (target.id === 'clear') {
-	        this.clearCalculatorView();
+	        this.clearView();
 	    } else {
 	        this.printResult();
 	    }
@@ -177,13 +177,27 @@
 
 	function ConverterView(converter) {
 	    uc = converter;
+	    console.log("hello");
 	}
 
 	ConverterView.prototype.addListeners = function() {
 	    var convertDistanceBtn = document.getElementById('distanceConverter').getElementsByTagName('button')[0];
 	    var convertTempBtn = document.getElementById('temperatureConverter').getElementsByTagName('button')[0];
+	    convertDistanceBtn.addEventListener('click', function() {
+	        this.convertDistance();
+	    }.bind(this));
+	    convertTempBtn.addEventListener('click', function() {
 
-	}
+	    });
+	};
+
+	ConverterView.prototype.convertDistance = function() {
+	    console.log("hello");
+	};
+
+	ConverterView.prototype.convertTemperature = function() {
+
+	};
 
 	module.exports = ConverterView;
 
@@ -306,7 +320,7 @@
 	 * @return converted temperature as a number with at most 2 decimal points
 	 */
 	UnitConverter.prototype.celsiusToFahrenheit = function(celsius) {
-	    return ((celsius, 1.8) + 32).toFixed(2);
+	    return ((celsius * 1.8) + 32).toFixed(2);
 	};
 
 	/**
