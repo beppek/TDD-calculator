@@ -41,13 +41,19 @@ describe('ConverterView', function () {
         sinon.assert.calledOnce(spy);
     });
 
- it('should call convertTemperature on click', function () {
+    it('should call convertTemperature on click', function () {
         createHTML();
         var btn = document.getElementById('temperatureConverter').getElementsByTagName('button')[0];
         var spy = sinon.spy(sut, "convertTemperature");
         btn.click();
         spy.restore();
         sinon.assert.calledOnce(spy);
+    });
+
+
+    it('should return false if input is not a number', function () {
+        var input = 'p1';
+        assert.isFalse(sut.isNumber(input));
     });
 
     function createHTML() {
@@ -71,7 +77,7 @@ describe('ConverterView', function () {
                                 '<option value="feet">Feet</option>' +
                             '</select>' +
                             '<button>Convert</button>' +
-                            '<p id="convertedDistance"></p>' +
+                            '<p id="distanceOutput"></p>' +
                         '</div>' +
                         '<div class="row" id="temperatureConverter">' +
                             '<input type="text" id="temperature">' +
@@ -86,10 +92,7 @@ describe('ConverterView', function () {
                                 '<option value="fahrenheit">Fahrenheit</option>' +
                             '</select>' +
                             '<button>Convert</button>' +
-                            '<p id="convertedTemp"></p>' +
-                        '</div>' +
-                        '<div class="row">' +
-                            '<button id="clear">Clear</button>' +
+                            '<p id="temperatureOutput"></p>' +
                         '</div>' +
                     '</div>';
         document.body.innerHTML = html;

@@ -20,11 +20,17 @@ ConverterView.prototype.addListeners = function() {
 };
 
 ConverterView.prototype.convertDistance = function() {
+    var output = document.getElementById('distanceOutput');
+    output.textContent = '';
 
 };
 
 ConverterView.prototype.convertTemperature = function() {
 
 };
+
+ConverterView.prototype.isNumber = function(input) {
+
+}
 
 module.exports = ConverterView;
