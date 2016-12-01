@@ -83,6 +83,12 @@ describe('Ratio', function () {
            assert.equal(actual, expected);
        });
 
+       it('should return ratio for feet', function () {
+           var expected = 3.280839895;
+           var actual = sut.meters('feet');
+           assert.equal(actual, expected);
+       });
+
 
     });
 
