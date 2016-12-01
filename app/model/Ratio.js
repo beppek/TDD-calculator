@@ -49,6 +49,8 @@ Ratio.prototype.yards = function(unit) {
             return 0.0009144;
         case 'miles':
             return 0.000568;
+        case 'meters':
+            return 0.9144;
     }
 };
 
