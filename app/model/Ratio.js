@@ -63,7 +63,7 @@ Ratio.prototype.feet = function(unit) {
         case 'miles':
             return 0.000189394;
         case 'meters':
-            return 0.9144;
+            return 0.3048;
         case 'yards':
             return 3;
     }
