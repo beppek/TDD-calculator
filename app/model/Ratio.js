@@ -44,7 +44,12 @@ Ratio.prototype.meters = function(unit) {
 };
 
 Ratio.prototype.yards = function(unit) {
-
+    switch (unit) {
+        case 'km':
+            return 0.0009144;
+        case 'miles':
+            return 0.000568;
+    }
 };
 
 Ratio.prototype.feet = function(unit) {
