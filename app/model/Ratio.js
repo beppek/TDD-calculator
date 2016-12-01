@@ -51,11 +51,12 @@ Ratio.prototype.yards = function(unit) {
             return 0.000568;
         case 'meters':
             return 0.9144;
+        case 'feet':
+            return 3;
     }
 };
 
 Ratio.prototype.feet = function(unit) {
-
 };
 
 module.exports = Ratio;
