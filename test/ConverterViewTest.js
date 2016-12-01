@@ -60,13 +60,27 @@ describe('ConverterView', function () {
         assert.isTrue(sut.isNumber(input));
     });
 
+    it('should print the converted distance to output', function () {
+        createHTML();
+        var input = document.getElementById('distance');
+        var dUnit1 = document.getElementById('distanceUnit1').children[1];
+        var dUnit2 = document.getElementById('distanceUnit2').children[1];
+        dUnit1.selected = true;
+        dUnit2.selected = true;
+        input.textContent = '42';
+        sut.convertDistance();
+        var expected = '42';
+        var actual = document.getElementById('distanceOutput').textContent;
+        assert.equal(actual, expected);
+    });
+
 
     function createHTML() {
         var html =  '<div id="app">' +
                         '<div id="distanceConverter">' +
                             '<input type="text" id="distance">' +
                             '<select name="distanceUnit1" id="distanceUnit1">' +
-                                '<option value="from" disabled selected>-- From --</option>' +
+                                '<option value="from" disabled>-- From --</option>' +
                                 '<option value="km">Kilometers</option>' +
                                 '<option value="miles">Miles</option>' +
                                 '<option value="meters">Meters</option>' +
@@ -74,7 +88,7 @@ describe('ConverterView', function () {
                                 '<option value="feet">Feet</option>' +
                             '<select>' +
                             '<select name="distanceUnit2" id="distanceUnit2">' +
-                                '<option value="to" disabled selected>-- To --</option>' +
+                                '<option value="to" disabled>-- To --</option>' +
                                 '<option value="km">Kilometers</option>' +
                                 '<option value="miles">Miles</option>' +
                                 '<option value="meters">Meters</option>' +
@@ -87,12 +101,12 @@ describe('ConverterView', function () {
                         '<div class="row" id="temperatureConverter">' +
                             '<input type="text" id="temperature">' +
                             '<select name="tempUnit1" id="tempUnit1">' +
-                                '<option value="from" disabled selected>-- From --</option>' +
+                                '<option value="from" disabled>-- From --</option>' +
                                 '<option value="celsius">Celsius</option>' +
                                 '<option value="fahrenheit">Fahrenheit</option>' +
                             '</select>' +
                             '<select name="tempUnit2" id="tempUnit2">' +
-                                '<option value="to" disabled selected>-- To --</option>' +
+                                '<option value="to" disabled>-- To --</option>' +
                                 '<option value="celsius">Celsius</option>' +
                                 '<option value="fahrenheit">Fahrenheit</option>' +
                             '</select>' +
@@ -114,6 +128,12 @@ function ConverterStub() {
 }
 ConverterStub.prototype = Object.create(Converter.prototype);
 ConverterStub.prototype.constructor = ConverterStub;
-ConverterStub.prototype.distance = function() {
-    // body
-}
+ConverterStub.prototype.distance = function(distance, ratio) {
+    return 42;
+};
+ConverterStub.prototype.celsiusToFahrenheit = function(celsius) {
+    return 42;
+};
+ConverterStub.prototype.fahrenheitToCelsius = function(fahrenheit) {
+    return 42;
+};
