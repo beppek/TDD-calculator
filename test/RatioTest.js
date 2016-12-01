@@ -117,8 +117,16 @@ describe('Ratio', function () {
             assert.equal(actual, expected);
         });
 
-
     });
 
+    describe('Feet Ratio', function () {
+
+       it('should return ratio for km', function () {
+           var expected = 0.0003048;
+           var actual = sut.feet('km');
+           assert.equal(actual, expected);
+       });
+
+    });
 
 });
