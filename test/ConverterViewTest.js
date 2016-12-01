@@ -41,6 +41,14 @@ describe('ConverterView', function () {
         sinon.assert.calledOnce(spy);
     });
 
+ it('should call convertTemperature on click', function () {
+        createHTML();
+        var btn = document.getElementById('temperatureConverter').getElementsByTagName('button')[0];
+        var spy = sinon.spy(sut, "convertTemperature");
+        btn.click();
+        spy.restore();
+        sinon.assert.calledOnce(spy);
+    });
 
     function createHTML() {
         var html =  '<div id="app">' +
