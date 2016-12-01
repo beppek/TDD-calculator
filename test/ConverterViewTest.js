@@ -67,7 +67,7 @@ describe('ConverterView', function () {
         var dUnit2 = document.getElementById('distanceUnit2').children[1];
         dUnit1.selected = true;
         dUnit2.selected = true;
-        input.textContent = '42';
+        input.value = '42';
         sut.convertDistance();
         var expected = '42';
         var actual = document.getElementById('distanceOutput').textContent;
@@ -128,6 +128,18 @@ describe('ConverterView', function () {
         var actual = sut.getRatio();
         assert.equal(actual, expected);
     });
+
+    it('should return 1 if both units are the same', function () {
+        createHTML();
+        var dUnit1 = document.getElementById('distanceUnit1').children[1];
+        var dUnit2 = document.getElementById('distanceUnit2').children[1];
+        dUnit1.selected = true;
+        dUnit2.selected = true;
+        var expected = 1;
+        var actual = sut.getRatio();
+        assert.equal(actual, expected);
+    });
+
 
     function createHTML() {
         var html =  '<div id="app">' +

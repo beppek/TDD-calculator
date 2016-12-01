@@ -46,8 +46,8 @@
 
 	var CalculatorView = __webpack_require__(1);
 	var ConverterView = __webpack_require__(2);
-	var Calculator = __webpack_require__(3);
-	var UnitConverter = __webpack_require__(5);
+	var Calculator = __webpack_require__(4);
+	var UnitConverter = __webpack_require__(6);
 
 	document.addEventListener('DOMContentLoaded', function() {
 	    if (document.title === 'Calculator') {
@@ -169,15 +169,18 @@
 
 /***/ },
 /* 2 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
+	var Ratio = __webpack_require__(3);
 	var uc;
+	var r;
 
 	function ConverterView(converter) {
 	    uc = converter;
-	    console.log("hello");
+	    r = new Ratio();
+	    this.addListeners();
 	}
 
 	ConverterView.prototype.addListeners = function() {
@@ -187,27 +190,139 @@
 	        this.convertDistance();
 	    }.bind(this));
 	    convertTempBtn.addEventListener('click', function() {
-
-	    });
+	        this.convertTemperature();
+	    }.bind(this));
 	};
 
 	ConverterView.prototype.convertDistance = function() {
-	    console.log("hello");
+	    var output = document.getElementById('distanceOutput');
+	    output.textContent = '';
+	    var ratio = this.getRatio();
+	    var input = parseInt(document.getElementById('distance').value);
+	    console.log(input);
+	    if (this.isNumber(input)) {
+	        output.textContent = uc.distance(input, ratio);
+	    } else {
+
+	    }
 	};
 
 	ConverterView.prototype.convertTemperature = function() {
 
 	};
 
+	ConverterView.prototype.isNumber = function(input) {
+	    if (isNaN(input)) {
+	        return false;
+	    }
+	    return true;
+	};
+
+	ConverterView.prototype.getRatio = function() {
+	    var dUnitSelect1 = document.getElementById('distanceUnit1');
+	    var dUnitSelect2 = document.getElementById('distanceUnit2');
+	    var dUnit1 = dUnitSelect1.options[dUnitSelect1.selectedIndex].value;
+	    var dUnit2 = dUnitSelect2.options[dUnitSelect2.selectedIndex].value;
+	    switch (dUnit1) {
+	        case 'km':
+	            return r.km(dUnit2);
+	        case 'miles':
+	            return r.miles(dUnit2);
+	        case 'meters':
+	            return r.meters(dUnit2);
+	        case 'yards':
+	            return r.yards(dUnit2);
+	        case 'feet':
+	            return r.feet(dUnit2);
+	    }
+	};
+
 	module.exports = ConverterView;
 
 /***/ },
 /* 3 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	function Ratio() {
+
+	}
+
+	Ratio.prototype.km = function(unit) {
+	    switch (unit) {
+	        case 'miles':
+	            return 0.62137;
+	        case 'meters':
+	            return 1000;
+	        case 'yards':
+	            return 1093.6133;
+	        case 'feet':
+	            return 3280.8399;
+	    }
+	};
+
+	Ratio.prototype.miles = function(unit) {
+	    switch (unit) {
+	        case 'km':
+	            return 1.609344;
+	        case 'meters':
+	            return 1609.344;
+	        case 'yards':
+	            return 1760;
+	        case 'feet':
+	            return 5280;
+	    }
+	};
+
+	Ratio.prototype.meters = function(unit) {
+	    switch (unit) {
+	        case 'km':
+	            return 0.001;
+	        case 'miles':
+	            return 0.000621371192;
+	        case 'yards':
+	            return 1.0936133;
+	        case 'feet':
+	            return 3.280839895;
+	    }
+	};
+
+	Ratio.prototype.yards = function(unit) {
+	    switch (unit) {
+	        case 'km':
+	            return 0.0009144;
+	        case 'miles':
+	            return 0.000568;
+	        case 'meters':
+	            return 0.9144;
+	        case 'feet':
+	            return 3;
+	    }
+	};
+
+	Ratio.prototype.feet = function(unit) {
+	    switch (unit) {
+	        case 'km':
+	            return 0.0003048;
+	        case 'miles':
+	            return 0.000189394;
+	        case 'meters':
+	            return 0.3048;
+	        case 'yards':
+	            return 0.333333;
+	    }
+	};
+
+	module.exports = Ratio;
+
+/***/ },
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var nums = __webpack_require__(4);
+	var nums = __webpack_require__(5);
 
 	function Calculator() {
 
@@ -255,7 +370,7 @@
 	module.exports = Calculator;
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -282,7 +397,7 @@
 	}
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -298,8 +413,8 @@
 	 */
 	'use strict';
 
-	var Calculator = __webpack_require__(3);
-	var nums = __webpack_require__(4);
+	var Calculator = __webpack_require__(4);
+	var nums = __webpack_require__(5);
 
 	function UnitConverter() {
 

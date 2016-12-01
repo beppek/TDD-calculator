@@ -25,9 +25,12 @@ ConverterView.prototype.convertDistance = function() {
     var output = document.getElementById('distanceOutput');
     output.textContent = '';
     var ratio = this.getRatio();
-    var input = parseInt(document.getElementById('distance').textContent);
+    var input = parseInt(document.getElementById('distance').value);
+    console.log(input);
     if (this.isNumber(input)) {
         output.textContent = uc.distance(input, ratio);
+    } else {
+
     }
 };
 
@@ -59,7 +62,6 @@ ConverterView.prototype.getRatio = function() {
         case 'feet':
             return r.feet(dUnit2);
     }
-    return 1;
 };
 
 module.exports = ConverterView;
