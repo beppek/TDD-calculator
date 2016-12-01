@@ -162,7 +162,7 @@ describe('ConverterView', function () {
         dUnit1.selected = true;
         dUnit2.selected = true;
         input.value = '42';
-        sut.convertDistance();
+        sut.convertTemperature();
         var expected = '42c';
         var actual = document.getElementById('temperatureOutput').textContent;
         assert.equal(actual, expected);
