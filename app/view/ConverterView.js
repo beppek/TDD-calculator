@@ -52,7 +52,8 @@ ConverterView.prototype.getRatio = function() {
             return r.km(dUnit2);
         case 'miles':
             return r.miles(dUnit2);
-
+        case 'meters':
+            return r.meters(dUnit2);
     }
     return 1;
 };
