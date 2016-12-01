@@ -29,7 +29,7 @@ ConverterView.prototype.convertDistance = function() {
     if (this.isNumber(input)) {
         output.textContent = uc.distance(input, ratio);
     } else {
-
+        output.textContent = 'Input was not a number, try again';
     }
 };
 
