@@ -182,6 +182,21 @@ describe('ConverterView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should print same as input if both selections are the same', function () {
+        createHTML();
+        var input = document.getElementById('temperature');
+        var dUnit1 = document.getElementById('tempUnit1').children[1];
+        var dUnit2 = document.getElementById('tempUnit2').children[1];
+        dUnit1.selected = true;
+        dUnit2.selected = true;
+        input.value = '42';
+        sut.convertTemperature();
+        var expected = '42';
+        var actual = document.getElementById('temperatureOutput').textContent;
+        assert.equal(actual, expected);
+    });
+
+
     function createHTML() {
         var html =  '<div id="app">' +
                         '<div id="distanceConverter">' +
