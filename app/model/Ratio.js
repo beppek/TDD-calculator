@@ -43,4 +43,12 @@ Ratio.prototype.meters = function(unit) {
     }
 };
 
+Ratio.prototype.yards = function(unit) {
+
+};
+
+Ratio.prototype.feet = function(unit) {
+
+};
+
 module.exports = Ratio;

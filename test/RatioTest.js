@@ -91,4 +91,15 @@ describe('Ratio', function () {
 
     });
 
+    describe('Yards Ratio', function () {
+
+        it('should return ratio for yards to km', function () {
+            var expected = 0.0009144;
+            var actual = sut.yards('km');
+            assert.equal(actual, expected);
+        });
+
+    });
+
+
 });
