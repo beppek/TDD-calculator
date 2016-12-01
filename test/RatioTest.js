@@ -25,4 +25,10 @@ describe('Ratio', function () {
         assert.equal(actual, expected);
     });
 
+    it('should return ratio for km to feet', function () {
+        var expected = 3280.8399;
+        var actual = sut.km('feet');
+        assert.equal(actual, expected);
+    });
+
 });
