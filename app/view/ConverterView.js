@@ -1,9 +1,12 @@
 'use strict';
 
+var Ratio = require('../model/Ratio');
 var uc;
+var r;
 
 function ConverterView(converter) {
     uc = converter;
+    r = new Ratio();
     this.addListeners();
 }
 
@@ -44,6 +47,11 @@ ConverterView.prototype.getRatio = function() {
     var dUnitSelect2 = document.getElementById('distanceUnit2');
     var dUnit1 = dUnitSelect1.options[dUnitSelect1.selectedIndex].value;
     var dUnit2 = dUnitSelect2.options[dUnitSelect2.selectedIndex].value;
+    switch (dUnit1) {
+        case 'km':
+            return 0.62137;
+
+    }
     return 1;
 };
 
