@@ -55,6 +55,11 @@ describe('Ratio', function () {
             assert.equal(actual, expected);
         });
 
+        it('should return ratio for feet', function () {
+            var expected = 5280;
+            var actual = sut.miles('feet');
+            assert.equal(actual, expected);
+        });
 
     });
 
