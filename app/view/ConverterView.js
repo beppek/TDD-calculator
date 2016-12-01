@@ -21,7 +21,11 @@ ConverterView.prototype.addListeners = function() {
 ConverterView.prototype.convertDistance = function() {
     var output = document.getElementById('distanceOutput');
     output.textContent = '';
-
+    var ratio = this.getRatio();
+    var input = parseInt(document.getElementById('distance').textContent);
+    if (this.isNumber(input)) {
+        output.textContent = uc.distance(input, ratio);
+    }
 };
 
 ConverterView.prototype.convertTemperature = function() {
@@ -33,6 +37,14 @@ ConverterView.prototype.isNumber = function(input) {
         return false;
     }
     return true;
-}
+};
+
+ConverterView.prototype.getRatio = function() {
+    var dUnitSelect1 = document.getElementById('distanceUnit1');
+    var dUnitSelect2 = document.getElementById('distanceUnit2');
+    var dUnit1 = dUnitSelect1.options[dUnitSelect1.selectedIndex].value;
+    var dUnit2 = dUnitSelect2.options[dUnitSelect2.selectedIndex].value;
+    return 1;
+};
 
 module.exports = ConverterView;
