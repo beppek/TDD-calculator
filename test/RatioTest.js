@@ -105,6 +105,12 @@ describe('Ratio', function () {
             assert.equal(actual, expected);
         });
 
+        it('should return ratio for meters', function () {
+            var expeted = 0.9144;
+            var actual = sut.yards('meters');
+            assert.equal(actual, expected);
+        });
+
 
     });
 
