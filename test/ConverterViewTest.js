@@ -163,7 +163,7 @@ describe('ConverterView', function () {
         dUnit2.selected = true;
         input.value = '42';
         sut.convertTemperature();
-        var expected = '42c';
+        var expected = '42f';
         var actual = document.getElementById('temperatureOutput').textContent;
         assert.equal(actual, expected);
     });
@@ -177,7 +177,7 @@ describe('ConverterView', function () {
         dUnit2.selected = true;
         input.value = '42';
         sut.convertTemperature();
-        var expected = '42f';
+        var expected = '42c';
         var actual = document.getElementById('temperatureOutput').textContent;
         assert.equal(actual, expected);
     });

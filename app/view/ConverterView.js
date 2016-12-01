@@ -45,9 +45,9 @@ ConverterView.prototype.convertTemperature = function() {
         if (tempUnit1 === tempUnit2) {
             output.textContent = input;
         } else if (tempUnit1 === 'celsius') {
-            output.textContent = uc.celsiusToFahrenheit(input) + 'c';
+            output.textContent = uc.celsiusToFahrenheit(input) + 'f';
         } else {
-            output.textContent = uc.fahrenheitToCelsius(input) + 'f';
+            output.textContent = uc.fahrenheitToCelsius(input) + 'c';
         }
     } else {
         output.textContent = 'Input was not a number, try again';

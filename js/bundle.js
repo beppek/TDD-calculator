@@ -199,16 +199,32 @@
 	    output.textContent = '';
 	    var ratio = this.getRatio();
 	    var input = parseInt(document.getElementById('distance').value);
-	    console.log(input);
 	    if (this.isNumber(input)) {
 	        output.textContent = uc.distance(input, ratio);
 	    } else {
-
+	        output.textContent = 'Input was not a number, try again';
 	    }
 	};
 
 	ConverterView.prototype.convertTemperature = function() {
-
+	    var output = document.getElementById('temperatureOutput');
+	    output.textContent = '';
+	    var tempSelect1 = document.getElementById('tempUnit1');
+	    var tempSelect2 = document.getElementById('tempUnit2');
+	    var tempUnit1 = tempSelect1.options[tempSelect1.selectedIndex].value;
+	    var tempUnit2 = tempSelect2.options[tempSelect2.selectedIndex].value;
+	    var input = parseInt(document.getElementById('temperature').value);
+	    if (this.isNumber(input)) {
+	        if (tempUnit1 === tempUnit2) {
+	            output.textContent = input;
+	        } else if (tempUnit1 === 'celsius') {
+	            output.textContent = uc.celsiusToFahrenheit(input) + 'f';
+	        } else {
+	            output.textContent = uc.fahrenheitToCelsius(input) + 'c';
+	        }
+	    } else {
+	        output.textContent = 'Input was not a number, try again';
+	    }
 	};
 
 	ConverterView.prototype.isNumber = function(input) {
