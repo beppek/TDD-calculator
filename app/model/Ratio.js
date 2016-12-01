@@ -34,6 +34,8 @@ Ratio.prototype.meters = function(unit) {
     switch (unit) {
         case 'km':
             return 0.001;
+        case 'miles':
+            return 0.000621371192;
     }
 };
 
