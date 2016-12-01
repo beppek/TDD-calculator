@@ -25,6 +25,8 @@ Ratio.prototype.miles = function(unit) {
             return 1609.344;
         case 'yards':
             return 1760;
+        case 'feet':
+            return 5280;
     }
 };
 
