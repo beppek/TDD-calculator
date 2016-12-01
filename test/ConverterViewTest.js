@@ -32,6 +32,15 @@ describe('ConverterView', function () {
         sinon.assert.calledOnce(spy);
     });
 
+    it('should call convertDistance on click', function () {
+        createHTML();
+        var btn = document.getElementById('distanceConverter').getElementsByTagName('button')[0];
+        var spy = sinon.spy(sut, "convertDistance");
+        btn.click();
+        spy.restore();
+        sinon.assert.calledOnce(spy);
+    });
+
 
     function createHTML() {
         var html =  '<div id="app">' +
