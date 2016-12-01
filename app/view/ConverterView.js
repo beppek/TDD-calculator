@@ -49,7 +49,7 @@ ConverterView.prototype.getRatio = function() {
     var dUnit2 = dUnitSelect2.options[dUnitSelect2.selectedIndex].value;
     switch (dUnit1) {
         case 'km':
-            return 0.62137;
+            return r.km(dUnit2);
 
     }
     return 1;
