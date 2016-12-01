@@ -38,6 +38,8 @@ Ratio.prototype.meters = function(unit) {
             return 0.000621371192;
         case 'yards':
             return 1.0936133;
+        case 'feet':
+            return 3.280839895;
     }
 };
 
