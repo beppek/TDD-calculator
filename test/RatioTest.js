@@ -13,5 +13,10 @@ describe('Ratio', function () {
         assert.equal(actual, expected);
     });
 
+    it('should return ratio for km to meters', function () {
+        var expected = 1000;
+        var actual = sut.km('meters');
+        assert.equal(actual, expected);
+    });
 
 });
