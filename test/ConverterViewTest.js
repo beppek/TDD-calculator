@@ -154,6 +154,20 @@ describe('ConverterView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should print the result from celsius to fahrenheit', function () {
+        createHTML();
+        var input = document.getElementById('temperature');
+        var dUnit1 = document.getElementById('tempUnit1').children[1];
+        var dUnit2 = document.getElementById('tempUnit2').children[2];
+        dUnit1.selected = true;
+        dUnit2.selected = true;
+        input.value = '42';
+        sut.convertDistance();
+        var expected = '42c';
+        var actual = document.getElementById('temperatureOutput').textContent;
+        assert.equal(actual, expected);
+    });
+
 
     function createHTML() {
         var html =  '<div id="app">' +
