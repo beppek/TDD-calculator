@@ -54,6 +54,8 @@ ConverterView.prototype.getRatio = function() {
             return r.miles(dUnit2);
         case 'meters':
             return r.meters(dUnit2);
+        case 'yards':
+            return r.yards(dUnit2);
     }
     return 1;
 };
