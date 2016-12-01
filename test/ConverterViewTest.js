@@ -140,6 +140,20 @@ describe('ConverterView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should print error message if input is not a number', function () {
+        createHTML();
+        var input = document.getElementById('distance');
+        var dUnit1 = document.getElementById('distanceUnit1').children[1];
+        var dUnit2 = document.getElementById('distanceUnit2').children[2];
+        dUnit1.selected = true;
+        dUnit2.selected = true;
+        input.value = 'asfd';
+        sut.convertDistance();
+        var expected = 'Input was not a number, try again';
+        var actual = document.getElementById('distanceOutput').textContent;
+        assert.equal(actual, expected);
+    });
+
 
     function createHTML() {
         var html =  '<div id="app">' +

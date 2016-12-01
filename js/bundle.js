@@ -224,6 +224,8 @@
 	    var dUnit1 = dUnitSelect1.options[dUnitSelect1.selectedIndex].value;
 	    var dUnit2 = dUnitSelect2.options[dUnitSelect2.selectedIndex].value;
 	    switch (dUnit1) {
+	        case dUnit2:
+	            return 1;
 	        case 'km':
 	            return r.km(dUnit2);
 	        case 'miles':

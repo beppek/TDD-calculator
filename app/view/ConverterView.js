@@ -26,7 +26,6 @@ ConverterView.prototype.convertDistance = function() {
     output.textContent = '';
     var ratio = this.getRatio();
     var input = parseInt(document.getElementById('distance').value);
-    console.log(input);
     if (this.isNumber(input)) {
         output.textContent = uc.distance(input, ratio);
     } else {
@@ -35,7 +34,8 @@ ConverterView.prototype.convertDistance = function() {
 };
 
 ConverterView.prototype.convertTemperature = function() {
-
+    var output = document.getElementById('temperatureOutput');
+    output.textContent = '';
 };
 
 ConverterView.prototype.isNumber = function(input) {
