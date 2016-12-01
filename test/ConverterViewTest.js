@@ -118,6 +118,17 @@ describe('ConverterView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should return correct ratio for feet to yards', function () {
+        createHTML();
+        var dUnit1 = document.getElementById('distanceUnit1').children[5];
+        var dUnit2 = document.getElementById('distanceUnit2').children[4];
+        dUnit1.selected = true;
+        dUnit2.selected = true;
+        var expected = 0.333333;
+        var actual = sut.getRatio();
+        assert.equal(actual, expected);
+    });
+
     function createHTML() {
         var html =  '<div id="app">' +
                         '<div id="distanceConverter">' +
