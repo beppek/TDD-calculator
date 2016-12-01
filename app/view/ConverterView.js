@@ -50,6 +50,8 @@ ConverterView.prototype.getRatio = function() {
     switch (dUnit1) {
         case 'km':
             return r.km(dUnit2);
+        case 'miles':
+            return r.miles(dUnit2);
 
     }
     return 1;
