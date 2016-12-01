@@ -168,6 +168,19 @@ describe('ConverterView', function () {
         assert.equal(actual, expected);
     });
 
+    it('should print the result from fahrenheit to celsius', function () {
+        createHTML();
+        var input = document.getElementById('temperature');
+        var dUnit1 = document.getElementById('tempUnit1').children[2];
+        var dUnit2 = document.getElementById('tempUnit2').children[1];
+        dUnit1.selected = true;
+        dUnit2.selected = true;
+        input.value = '42';
+        sut.convertTemperature();
+        var expected = '42f';
+        var actual = document.getElementById('temperatureOutput').textContent;
+        assert.equal(actual, expected);
+    });
 
     function createHTML() {
         var html =  '<div id="app">' +
