@@ -10,6 +10,8 @@ Ratio.prototype.km = function(unit) {
             return 0.62137;
         case 'meters':
             return 1000;
+        case 'yards':
+            return 1093.6133;
     }
 };
 
