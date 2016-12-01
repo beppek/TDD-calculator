@@ -18,7 +18,10 @@ Ratio.prototype.km = function(unit) {
 };
 
 Ratio.prototype.miles = function(unit) {
-
+    switch (unit) {
+        case 'km':
+            return 1.609344;
+    }
 };
 
 module.exports = Ratio;
