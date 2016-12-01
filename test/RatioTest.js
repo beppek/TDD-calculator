@@ -99,6 +99,13 @@ describe('Ratio', function () {
             assert.equal(actual, expected);
         });
 
+        it('should return ratio for miles', function () {
+            var expected = 0.000568;
+            var actual = sut.yards('miles');
+            assert.equal(actual, expected);
+        });
+
+
     });
 
 
