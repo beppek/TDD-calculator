@@ -30,10 +30,10 @@ ConverterView.prototype.convertTemperature = function() {
 };
 
 ConverterView.prototype.isNumber = function(input) {
-    var parsed = parseInt(input);
-    if (isNaN(parsed)) {
+    if (isNaN(input)) {
         return false;
     }
+    return true;
 }
 
 module.exports = ConverterView;
