@@ -30,4 +30,8 @@ Ratio.prototype.miles = function(unit) {
     }
 };
 
+Ratio.prototype.meters = function(unit) {
+
+};
+
 module.exports = Ratio;

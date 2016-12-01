@@ -63,4 +63,14 @@ describe('Ratio', function () {
 
     });
 
+    describe('Meters ratio', function () {
+
+       it('should return ratio for km', function () {
+           var expected = 0.001;
+           var actual = sut.meters('km');
+           assert.equal(actual, expected);
+       });
+
+    });
+
 });
